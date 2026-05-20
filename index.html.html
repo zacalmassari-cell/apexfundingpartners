@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Funding Partners — UK Grant Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #0f0e0b;
+    --cream: #f5f2ec;
+    --warm-white: #faf9f6;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --gold-pale: #f0e6c8;
+    --slate: #3a3830;
+    --muted: #7a7668;
+    --border: rgba(15,14,11,0.12);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(245,242,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-cta {
+    display: inline-block;
+    padding: 0.55rem 1.4rem;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 300;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-sub strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '→';
+    margin-left: 0.5rem;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-primary:hover::after { transform: translateX(3px); }
+  .hero-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .hero-note::before { content: '✓'; color: var(--gold); font-weight: 700; }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 3rem;
+    background: var(--ink);
+    clip-path: polygon(6% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    width: 100%;
+    max-width: 360px;
+  }
+  .stat-row {
+    padding: 1.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-row:first-child { padding-top: 0; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.03em;
+  }
+  .stat-note {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 0.2rem;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--gold-pale);
+    border-top: 1px solid rgba(184,134,11,0.2);
+    border-bottom: 1px solid rgba(184,134,11,0.2);
+    padding: 1rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--slate);
+    letter-spacing: 0.02em;
+  }
+  .trust-item .check { color: var(--gold); font-size: 0.9rem; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-heading {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .section-heading em { font-style: italic; color: var(--gold); font-weight: 300; }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ── THE ANGLE — NO-BRAINER SECTION ── */
+  .angle-section {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 6rem 4rem;
+  }
+  .angle-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .angle-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .angle-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold-light); }
+  .angle-heading {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  .angle-heading em { font-style: italic; color: var(--gold-light); font-weight: 300; }
+  .angle-body {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+  .angle-body strong { color: #fff; font-weight: 500; }
+  .comparison-table { width: 100%; border-collapse: collapse; }
+  .comparison-table th {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-align: left;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .comparison-table th:last-child { text-align: center; }
+  .comparison-table td {
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    vertical-align: middle;
+  }
+  .comparison-table td:first-child { color: rgba(255,255,255,0.9); }
+  .comparison-table td:last-child { text-align: center; }
+  .tag-apex {
+    display: inline-block;
+    background: rgba(212,160,23,0.2);
+    color: var(--gold-light);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(212,160,23,0.3);
+  }
+  .tag-them {
+    display: inline-block;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.35);
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.2);
+  }
+
+  /* ── WHO WE HELP ── */
+  .clients-section { background: var(--cream); }
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .client-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .client-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .client-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .client-card:hover::before { transform: scaleX(1); }
+  .client-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--gold-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+  .client-type {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .client-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+  }
+  .client-grants {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .grant-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+    width: fit-content;
+  }
+  .grant-pill::before { content: '£'; font-weight: 700; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { background: var(--warm-white); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 2.5rem;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold), var(--gold), transparent);
+    opacity: 0.3;
+    z-index: 0;
+  }
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .step-num {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+  .step-item:nth-child(4) .step-num { background: var(--gold); }
+  .step-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .step-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section { background: var(--cream); }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .pricing-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.25s;
+  }
+  .pricing-card.featured {
+    background: var(--ink);
+    border-color: var(--ink);
+    transform: scale(1.03);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+  .pricing-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .pricing-tier {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .pricing-card.featured .pricing-tier { color: var(--gold-light); }
+  .pricing-name {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+  .pricing-card.featured .pricing-name { color: #fff; }
+  .pricing-price {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin: 1rem 0 0.3rem;
+  }
+  .pricing-card.featured .pricing-price { color: #fff; }
+  .pricing-price span {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--muted);
+  }
+  .pricing-card.featured .pricing-price span { color: rgba(255,255,255,0.5); }
+  .pricing-success {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .pricing-card.featured .pricing-success { color: var(--gold-light); border-color: rgba(255,255,255,0.1); }
+  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.4;
+  }
+  .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.7); }
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .pricing-cta {
+    display: block;
+    width: 100%;
+    padding: 0.9rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .pricing-cta.light {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
+  }
+  .pricing-cta.light:hover { background: var(--ink); color: var(--cream); }
+  .pricing-cta.dark {
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    font-weight: 600;
+  }
+  .pricing-cta.dark:hover { background: var(--gold-light); }
+
+  /* ── SECTORS ── */
+  .sectors-section { background: var(--warm-white); }
+  .sectors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .sector-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    transition: all 0.25s;
+    background: var(--warm-white);
+  }
+  .sector-card:hover { border-color: var(--gold); background: var(--gold-pale); }
+  .sector-num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold-pale);
+    line-height: 1;
+    -webkit-text-stroke: 1.5px var(--gold);
+  }
+  .sector-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .sector-desc {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+  .sector-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .sector-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--ink);
+    color: white;
+    text-align: center;
+    padding: 7rem 4rem;
+  }
+  .cta-inner { max-width: 700px; margin: 0 auto; }
+  .cta-heading {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
+  }
+  .cta-heading em { font-style: italic; color: var(--gold-light); font-weight: 300; }
+  .cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-gold {
+    display: inline-block;
+    padding: 1.1rem 2.5rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,134,11,0.3); }
+  .btn-gold::after { content: ' →'; }
+  .cta-reassurance {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .cta-reassurance span::before { content: '✓ '; color: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .footer-logo span { color: var(--gold); }
+  footer p {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow  { animation: fadeUp 0.6s ease both 0.1s; }
+  .hero-headline { animation: fadeUp 0.7s ease both 0.25s; }
+  .hero-sub      { animation: fadeUp 0.7s ease both 0.4s; }
+  .hero-actions  { animation: fadeUp 0.7s ease both 0.55s; }
+  .hero-stat-card { animation: fadeUp 0.8s ease both 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 6rem 1.5rem 3rem; }
+    .hero-right {
+      clip-path: none;
+      padding: 3rem 1.5rem;
+      justify-content: center;
+    }
+    .angle-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .clients-grid, .pricing-grid, .steps-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: none; }
+    .sectors-grid { grid-template-columns: 1fr; }
+    .steps-grid::before { display: none; }
+    .trust-bar { padding: 1rem 1.5rem; gap: 1.2rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    .cta-section { padding: 5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Apex <span>Funding</span> Partners</a>
+  <a href="YOUR_CALENDLY_LINK" class="nav-cta">Book free call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">UK Grant Consultancy</div>
+    <h1 class="hero-headline">
+      We win you grants.<br>
+      You pay us <em>only</em><br>
+      when we do.
+    </h1>
+    <p class="hero-sub">
+      Apex Funding Partners finds grants your business qualifies for, writes the application, and submits it. <strong>Our fee is tied to your success — not our effort.</strong> If we don't win, you've barely spent a thing.
+    </p>
+    <div class="hero-actions">
+      <a href="YOUR_CALENDLY_LINK" class="btn-primary">Book your free eligibility check</a>
+      <p class="hero-note">20-minute call, no commitment</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-card">
+      <div class="stat-row">
+        <div class="stat-num">£2B+</div>
+        <div class="stat-label">UK grant funding available annually</div>
+        <div class="stat-note">Innovate UK alone — source: UKRI 2025</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-num">Billions</div>
+        <div class="stat-label">go unclaimed every year</div>
+        <div class="stat-note">Because businesses don't know they qualify</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Upfront cost on our success-fee tier</div>
+        <div class="stat-note">You only pay when funding is awarded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="check">✓</span> AI-powered application writing</div>
+  <div class="trust-item"><span class="check">✓</span> First Class Finance degree, University of Exeter</div>
+  <div class="trust-item"><span class="check">✓</span> Fully remote — serving all UK businesses</div>
+  <div class="trust-item"><span class="check">✓</span> No win, minimal fee</div>
+  <div class="trust-item"><span class="check">✓</span> Free eligibility check on every call</div>
+</div>
+
+<!-- THE ANGLE -->
+<section class="angle-section">
+  <div class="angle-inner">
+    <div>
+      <div class="angle-label">Why Apex is different</div>
+      <h2 class="angle-heading">Other consultants charge you<br><em>regardless of outcome.</em><br>We don't.</h2>
+      <p class="angle-body">
+        The traditional grant writing industry charges <strong>£1,500–£5,000 per application</strong> upfront — win or lose. That's a significant risk for any business to absorb, especially before seeing a single result.
+        <br><br>
+        At Apex, our incentives are aligned with yours. We keep our retainer low, charge a success fee only on awarded grants, and use AI-powered tools to deliver applications faster and at a fraction of the cost of traditional agencies. <strong>You get the expertise. You keep the risk low. We only win when you win.</strong>
+      </p>
+    </div>
+    <div>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>What you want</th>
+            <th>Traditional agencies</th>
+            <th>Apex</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Low upfront cost</td>
+            <td><span class="tag-them">£1,500–5,000/app</span></td>
+            <td><span class="tag-apex">£99–149/mo</span></td>
+          </tr>
+          <tr>
+            <td>Risk tied to results</td>
+            <td><span class="tag-them">Paid win or lose</span></td>
+            <td><span class="tag-apex">Success fee only</span></td>
+          </tr>
+          <tr>
+            <td>Fast turnaround</td>
+            <td><span class="tag-them">2–4 weeks</span></td>
+            <td><span class="tag-apex">Days, not weeks</span></td>
+          </tr>
+          <tr>
+            <td>Ongoing monitoring</td>
+            <td><span class="tag-them">Project-by-project</span></td>
+            <td><span class="tag-apex">Included monthly</span></td>
+          </tr>
+          <tr>
+            <td>Transparent process</td>
+            <td><span class="tag-them">Black box</span></td>
+            <td><span class="tag-apex">Full visibility</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE HELP -->
+<section class="clients-section">
+  <div class="section-inner">
+    <div class="section-label">Who we work with</div>
+    <h2 class="section-heading">Three types of businesses<br>we specialise in</h2>
+    <p class="section-sub">We're selective about who we work with — so we can go deep on the grants that matter most to each sector.</p>
+    <div class="clients-grid">
+      <div class="client-card">
+        <div class="client-icon">💻</div>
+        <div class="client-type">Tech & Software SMEs</div>
+        <p class="client-desc">Post-revenue software or SaaS businesses with 5–50 employees. If your team is building, iterating, or solving technical problems — you almost certainly qualify for R&D tax relief and Innovate UK funding you haven't claimed.</p>
+        <div class="client-grants">
+          <span class="grant-pill">Innovate UK Smart Grants — up to £2M</span>
+          <span class="grant-pill">R&D Tax Credits — avg. £47,000 claim</span>
+          <span class="grant-pill">ERIS Intensive Support Scheme</span>
+        </div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon">🏗️</div>
+        <div class="client-type">Construction & Built Environment</div>
+        <p class="client-desc">Firms working on sustainability, energy efficiency, new materials, or innovative building methods. The government's net-zero agenda means more grant money is flowing into construction right now than ever before.</p>
+        <div class="client-grants">
+          <span class="grant-pill">Green Heat Network Fund</span>
+          <span class="grant-pill">Innovate UK BridgeAI — up to £500K</span>
+          <span class="grant-pill">UKSPF Local Growth Grants</span>
+        </div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon">🚀</div>
+        <div class="client-type">Sole Traders Incorporating</div>
+        <p class="client-desc">About to move from sole trader to limited company? That's the moment everything opens up. Dozens of grants you currently can't access become available the moment you incorporate — and we make sure you don't miss the window.</p>
+        <div class="client-grants">
+          <span class="grant-pill">Innovate UK Feasibility — up to £25K</span>
+          <span class="grant-pill">Local Growth Hub Grants</span>
+          <span class="grant-pill">R&D Tax Credits from day one</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-inner">
+    <div class="section-label">The process</div>
+    <h2 class="section-heading">Four steps from call<br>to <em>funded</em></h2>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-title">Free eligibility check</div>
+        <p class="step-desc">A 20-minute call. We assess what you're building, your sector, and your financials — and identify every grant you qualify for right now.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-title">We write it</div>
+        <p class="step-desc">Our AI-powered process produces a tailored application against the specific grant criteria. You review, we refine. Turnaround in days.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-title">We submit it</div>
+        <p class="step-desc">We handle the full submission. You stay on our radar for every new grant window that opens in your sector — nothing gets missed.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-title">You get funded</div>
+        <p class="step-desc">When the grant is awarded, our success fee kicks in. That's when we earn properly. Until then, your outlay is minimal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="section-inner">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-heading">Straightforward.<br>Tied to your results.</h2>
+    <p class="section-sub">No surprises. No large upfront fees. Choose the level of support that fits where you are right now.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-name">Radar</div>
+        <div class="pricing-price">£149<span>/mo</span></div>
+        <div class="pricing-success">+ 7% success fee on awarded grants</div>
+        <ul class="pricing-features">
+          <li>Monthly grant eligibility scan</li>
+          <li>Curated report of live opportunities</li>
+          <li>Sector-specific monitoring</li>
+          <li>You write and submit applications</li>
+          <li>Email support</li>
+        </ul>
+        <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Get started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-tier">Growth</div>
+        <div class="pricing-name">Done-for-you</div>
+        <div class="pricing-price">£499<span>/mo</span></div>
+        <div class="pricing-success">+ 7% success fee on awarded grants</div>
+        <ul class="pricing-features">
+          <li>Everything in Radar</li>
+          <li>1 full application written & submitted per month</li>
+          <li>AI-powered drafting, expert review</li>
+          <li>One revision round included</li>
+          <li>Monthly strategy call</li>
+          <li>Priority turnaround</li>
+        </ul>
+        <a href="YOUR_CALENDLY_LINK" class="pricing-cta dark">Book free eligibility check</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Full Service</div>
+        <div class="pricing-name">Unlimited</div>
+        <div class="pricing-price">£999<span>/mo</span></div>
+        <div class="pricing-success">+ 5% success fee on awarded grants</div>
+        <ul class="pricing-features">
+          <li>Everything in Done-for-you</li>
+          <li>Up to 3 applications per month</li>
+          <li>Compliance & reporting support</li>
+          <li>Quarterly funding strategy review</li>
+          <li>Dedicated account management</li>
+          <li>First in line for new schemes</li>
+        </ul>
+        <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Get started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS BREAKDOWN -->
+<section class="sectors-section">
+  <div class="section-inner">
+    <div class="section-label">What we find you</div>
+    <h2 class="section-heading">The grants we go after<br><em>on your behalf</em></h2>
+    <p class="section-sub">We monitor 35+ funding sources every week, so you never miss an open window.</p>
+    <div class="sectors-grid">
+      <div class="sector-card">
+        <div class="sector-num">01</div>
+        <div>
+          <div class="sector-name">Innovate UK</div>
+          <p class="sector-desc">The UK's primary innovation funder. Grants from £25K feasibility studies up to £2M for R&D projects. Highly competitive but the largest non-dilutive funding source available to UK SMEs. We know what assessors look for.</p>
+          <div class="sector-tags">
+            <span class="sector-tag">Tech</span>
+            <span class="sector-tag">Manufacturing</span>
+            <span class="sector-tag">Construction</span>
+            <span class="sector-tag">AI & Software</span>
+          </div>
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-num">02</div>
+        <div>
+          <div class="sector-name">R&D Tax Credits</div>
+          <p class="sector-desc">Often more valuable than a grant. Average claim for tech companies is £47,000. If your team is solving technical problems, you're probably eligible and not claiming. We build the technical narrative and financial case.</p>
+          <div class="sector-tags">
+            <span class="sector-tag">Software</span>
+            <span class="sector-tag">Engineering</span>
+            <span class="sector-tag">Product Development</span>
+          </div>
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-num">03</div>
+        <div>
+          <div class="sector-name">UK Shared Prosperity Fund</div>
+          <p class="sector-desc">Administered locally through Growth Hubs and councils. Less competitive than national schemes, faster decisions (2–6 weeks), and often overlooked. We track every regional allocation relevant to your location.</p>
+          <div class="sector-tags">
+            <span class="sector-tag">All sectors</span>
+            <span class="sector-tag">Regional</span>
+            <span class="sector-tag">New businesses</span>
+          </div>
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-num">04</div>
+        <div>
+          <div class="sector-name">Sustainability & Net-Zero</div>
+          <p class="sector-desc">Government net-zero targets mean unprecedented grant funding for energy efficiency, green construction, and clean technology. This is where construction firms are most consistently winning right now.</p>
+          <div class="sector-tags">
+            <span class="sector-tag">Construction</span>
+            <span class="sector-tag">Energy</span>
+            <span class="sector-tag">Manufacturing</span>
+            <span class="sector-tag">Transport</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-heading">Find out what<br>you're <em>leaving on the table</em></h2>
+    <p class="cta-sub">Book a free 20-minute eligibility check. We'll tell you exactly which grants you qualify for right now — no commitment, no hard sell, no fee.</p>
+    <a href="YOUR_CALENDLY_LINK" class="btn-gold">Book your free call</a>
+    <div class="cta-reassurance">
+      <span>20 minutes, no commitment</span>
+      <span>Free eligibility report on the call</span>
+      <span>No win, minimal fee</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Apex <span>Funding</span> Partners</div>
+  <p>Helping UK businesses claim the funding they're owed.</p>
+  <p>© 2026 Apex Funding Partners. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
