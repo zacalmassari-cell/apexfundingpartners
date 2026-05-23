@@ -785,6 +785,66 @@
 
 @media (max-width: 768px) {
 
+
+  /* FIX — pricing cards proper mobile layout */
+  .pricing-section { padding: 4rem 1.5rem !important; }
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .pricing-card {
+    width: 100% !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+    padding: 2rem 1.5rem !important;
+  }
+  .pricing-card.featured {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .pricing-name {
+    font-size: 1.4rem !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+  .pricing-tier {
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+  .pricing-price {
+    font-size: 2.2rem !important;
+  }
+  .pricing-features li {
+    font-size: 0.85rem !important;
+    word-break: normal !important;
+    white-space: normal !important;
+  }
+  .pricing-cta {
+    font-size: 0.82rem !important;
+    padding: 0.85rem !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+  .pricing-btn-group {
+    width: 100% !important;
+  }
+  .pricing-btn-group .pricing-cta {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .section-inner {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  /* prevent letter stacking everywhere */
+  p, h1, h2, h3, h4, span, a, li, div {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+  }
+
   /* HOMEOWNER HERO SECTION */
   #homeowners { padding: 4rem 1.5rem !important; }
   #homeowners h2 { font-size: 2rem !important; }
@@ -870,7 +930,7 @@
 
   /* GENERAL — prevent any element overflowing */
   body { overflow-x: hidden !important; }
-  * { max-width: 100% !important; word-break: break-word !important; }
+  * { box-sizing: border-box !important; }
 
   /* Fix stat rows in homeowner section from overflowing */
   #homeowners div[style*="border: 1px solid rgba(255,255,255,0.1)"] {
@@ -933,7 +993,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Apex <span>Funding</span> Partners</a>
-  <div style="display:flex;align-items:center;gap:1rem;"><a href="#homeowners" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Homeowners</a><a href="#checkout" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Pricing</a><a href="YOUR_CALENDLY_LINK" class="nav-cta">Book free call</a></div>
+  <div style="display:flex;align-items:center;gap:1rem;"><a href="#homeowners" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Homeowners</a><a href="#checkout" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Pricing</a><a href="https://calendly.com/zacharia-consulting/30min" class="nav-cta">Book free call</a></div>
 </nav>
 
 <!-- HERO -->
@@ -1132,7 +1192,7 @@
         </ul>
         <div class="pricing-btn-group">
           <a href="YOUR_STRIPE_RADAR_LINK" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £149/mo</a>
-          <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Book a call first</a>
+          <a href="https://calendly.com/zacharia-consulting/30min" class="pricing-cta light">Book a call first</a>
         </div>
       </div>
       <div class="pricing-card featured">
@@ -1151,7 +1211,7 @@
         </ul>
         <div class="pricing-btn-group">
           <a href="YOUR_STRIPE_GROWTH_LINK" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £499/mo</a>
-          <a href="YOUR_CALENDLY_LINK" class="pricing-cta light" style="color:#fff;border-color:rgba(255,255,255,0.3)">Book free call first</a>
+          <a href="https://calendly.com/zacharia-consulting/30min" class="pricing-cta light" style="color:#fff;border-color:rgba(255,255,255,0.3)">Book free call first</a>
         </div>
       </div>
       <div class="pricing-card">
@@ -1169,7 +1229,7 @@
         </ul>
         <div class="pricing-btn-group">
           <a href="YOUR_STRIPE_UNLIMITED_LINK" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £999/mo</a>
-          <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Book a call first</a>
+          <a href="https://calendly.com/zacharia-consulting/30min" class="pricing-cta light">Book a call first</a>
         </div>
       </div>
     </div>
@@ -1382,7 +1442,7 @@
           <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>You do nothing except provide the information we ask for</li>
         </ul>
         <a href="YOUR_STRIPE_HOMEOWNER_APP_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--gold);color:var(--ink);font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.6rem;">Start my application →</a>
-        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.55);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.15);">Speak to us first</a>
+        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.55);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.15);">Speak to us first</a>
       </div>
 
     </div>
@@ -1421,7 +1481,7 @@
           <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Email support</li>
         </ul>
         <a href="YOUR_STRIPE_RADAR_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £149/mo →</a>
-        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
+        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
       </div>
 
       <!-- GROWTH CHECKOUT (featured) -->
@@ -1439,7 +1499,7 @@
           <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>Priority turnaround</li>
         </ul>
         <a href="YOUR_STRIPE_GROWTH_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--gold);color:var(--ink);font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £499/mo →</a>
-        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.6);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.2);">Book a call first</a>
+        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.6);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.2);">Book a call first</a>
       </div>
 
       <!-- UNLIMITED CHECKOUT -->
@@ -1456,7 +1516,7 @@
           <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Dedicated account management</li>
         </ul>
         <a href="YOUR_STRIPE_UNLIMITED_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £999/mo →</a>
-        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
+        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
       </div>
 
     </div>
@@ -1470,7 +1530,7 @@
   <div class="cta-inner">
     <h2 class="cta-heading">Find out what<br>you're <em>leaving on the table</em></h2>
     <p class="cta-sub">Book a free 20-minute eligibility check. We'll tell you exactly which grants you qualify for right now — no commitment, no hard sell, no fee.</p>
-    <a href="YOUR_CALENDLY_LINK" class="btn-gold">Book your free call</a>
+    <a href="https://calendly.com/zacharia-consulting/30min" class="btn-gold">Book your free call</a>
     <div class="cta-reassurance">
       <span>20 minutes, no commitment</span>
       <span>Free eligibility report on the call</span>
