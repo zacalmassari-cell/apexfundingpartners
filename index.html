@@ -986,6 +986,73 @@
   }
 }
 
+
+  .hw-stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .hw-stat-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  .hw-stat-num {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    word-break: normal;
+  }
+  .hw-stat-label {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+  }
+  .hw-stat-note {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.4;
+  }
+  .hw-grant-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .hw-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .hw-stat-strip {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+      margin-bottom: 2.5rem !important;
+    }
+    .hw-stat-card {
+      padding: 1.25rem !important;
+      width: 100% !important;
+    }
+    .hw-stat-num {
+      font-size: 2.2rem !important;
+    }
+    .hw-grant-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+    .hw-why-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1319,28 +1386,28 @@
     </p>
 
     <!-- STAT STRIP -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem;">
-      <div style="border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:2rem;">
-        <div style="font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--gold-light);line-height:1;margin-bottom:0.5rem;">£7,500</div>
-        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Average heat pump grant</div>
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);">Boiler Upgrade Scheme — available now</div>
+    <div class="hw-stat-strip">
+      <div class="hw-stat-card">
+        <div class="hw-stat-num">£7,500</div>
+        <div class="hw-stat-label">Average heat pump grant</div>
+        <div class="hw-stat-note">Boiler Upgrade Scheme — available now</div>
       </div>
-      <div style="border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:2rem;">
-        <div style="font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--gold-light);line-height:1;margin-bottom:0.5rem;">£30,000</div>
-        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Max Disabled Facilities Grant</div>
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);">Stairlifts, wet rooms, home adaptations</div>
+      <div class="hw-stat-card">
+        <div class="hw-stat-num">£30,000</div>
+        <div class="hw-stat-label">Max Disabled Facilities Grant</div>
+        <div class="hw-stat-note">Stairlifts, wet rooms, home adaptations</div>
       </div>
-      <div style="border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:2rem;">
-        <div style="font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--gold-light);line-height:1;margin-bottom:0.5rem;">£1B+</div>
-        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Great British Insulation Scheme budget</div>
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);">Underspent every year — money going unused</div>
+      <div class="hw-stat-card">
+        <div class="hw-stat-num">£1B+</div>
+        <div class="hw-stat-label">Great British Insulation Scheme budget</div>
+        <div class="hw-stat-note">Underspent every year — money going unused</div>
       </div>
     </div>
 
     <!-- WHAT'S AVAILABLE -->
     <div style="margin-bottom:4rem;">
       <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="display:block;width:1.5rem;height:1px;background:var(--gold-light);"></span>What you could be claiming</div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;">
+      <div class="hw-grant-grid">
 
         <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
           <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">Boiler Upgrade Scheme</div>
@@ -1372,7 +1439,7 @@
     <!-- WHY IT'S HARD -->
     <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:2.5rem;margin-bottom:3.5rem;">
       <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:1rem;">Why most people never claim</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+      <div class="hw-why-grid">
         <div>
           <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">The paperwork</div>
           <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Each scheme has its own application portal, eligibility criteria, supporting documents, and approval chain. Most people start and abandon within an hour.</p>
