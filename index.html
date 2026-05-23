@@ -782,6 +782,150 @@
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     .cta-section { padding: 5rem 1.5rem; }
   }
+
+@media (max-width: 768px) {
+
+  /* HOMEOWNER HERO SECTION */
+  #homeowners { padding: 4rem 1.5rem !important; }
+  #homeowners h2 { font-size: 2rem !important; }
+  #homeowners p { font-size: 0.95rem !important; }
+
+  /* STAT STRIP — stack to single column */
+  #homeowners > div > div[style*="grid-template-columns: repeat(3"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* GRANT CARDS GRID — stack to single column */
+  #homeowners > div > div[style*="grid-template-columns: repeat(2"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* WHY ITS HARD — 3 col to single col */
+  #homeowners div[style*="grid-template-columns: repeat(3"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  /* HOMEOWNER PRICING SECTION */
+  #homeowner-pricing { padding: 4rem 1.5rem !important; }
+  #homeowner-pricing h2 { font-size: 1.75rem !important; }
+
+  /* PRICING CARDS — stack vertically, remove scale transform */
+  #homeowner-pricing > div > div[style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Remove scale transform on featured card mobile */
+  #homeowner-pricing div[style*="transform: scale(1.03)"] {
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+
+  /* REASSURANCE ROW — wrap properly */
+  #homeowner-pricing > div > div[style*="display: flex"] {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  /* CHECKOUT SECTION */
+  #checkout { padding: 4rem 1.5rem !important; }
+
+  /* BUSINESS PRICING GRID — stack on mobile */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pricing-card.featured {
+    transform: none !important;
+  }
+
+  /* SECTORS GRID */
+  .sectors-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CLIENTS GRID */
+  .clients-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* STEPS GRID */
+  .steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .steps-grid::before { display: none !important; }
+
+  /* ANGLE SECTION */
+  .angle-inner {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  /* GENERAL — prevent any element overflowing */
+  body { overflow-x: hidden !important; }
+  * { max-width: 100% !important; word-break: break-word !important; }
+
+  /* Fix stat rows in homeowner section from overflowing */
+  #homeowners div[style*="border: 1px solid rgba(255,255,255,0.1)"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Fix grant info cards */
+  #homeowners div[style*="border-left: 3px solid var(--gold)"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Fix the why its hard section boxes */
+  #homeowners div[style*="background: rgba(255,255,255,0.03)"] {
+    padding: 1.5rem !important;
+  }
+
+  /* Homeowner pricing cards full width on mobile */
+  #homeowner-pricing div[style*="border:"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Nav padding */
+  nav { padding: 1rem 1.5rem !important; }
+
+  /* Hero section */
+  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .hero-left { padding: 6rem 1.5rem 3rem !important; }
+  .hero-right { clip-path: none !important; padding: 3rem 1.5rem !important; }
+
+  /* Sections general */
+  section { padding: 4rem 1.5rem !important; }
+
+  /* Trust bar */
+  .trust-bar { padding: 1rem 1.5rem !important; gap: 1rem !important; flex-direction: column !important; align-items: flex-start !important; }
+
+  /* Footer */
+  footer { padding: 2rem 1.5rem !important; flex-direction: column !important; text-align: center !important; }
+
+  /* CTA section */
+  .cta-section { padding: 4rem 1.5rem !important; }
+
+  /* Checkout grid on business section */
+  #checkout > div > div[style*="grid-template-columns: repeat(3"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  #checkout div[style*="transform: scale(1.03)"] {
+    transform: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
