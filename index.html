@@ -176,34 +176,40 @@
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 4px;
-    padding: 2rem 2.5rem;
+    padding: 2.5rem 3rem;
     width: 100%;
-    max-width: 360px;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 460px;
   }
   .stat-row {
-    padding: 1.4rem 0;
+    padding: 2rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex: 1;
   }
   .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
   .stat-row:first-child { padding-top: 0; }
   .stat-num {
     font-family: var(--serif);
-    font-size: 2.8rem;
+    font-size: clamp(3.5rem, 5.5vw, 5.5rem);
     font-weight: 600;
     color: var(--gold-light);
     line-height: 1;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.6rem;
   }
   .stat-label {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
-    color: rgba(255,255,255,0.55);
-    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.02em;
+    line-height: 1.4;
   }
   .stat-note {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.35);
-    margin-top: 0.2rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.38);
+    margin-top: 0.4rem;
   }
 
   /* ── TRUST BAR ── */
@@ -741,6 +747,10 @@
     color: var(--muted);
   }
 
+
+  .pricing-btn-group { display: flex; flex-direction: column; gap: 0; }
+  .pricing-btn-group .pricing-cta { margin-bottom: 0; }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -779,7 +789,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Apex <span>Funding</span> Partners</a>
-  <a href="YOUR_CALENDLY_LINK" class="nav-cta">Book free call</a>
+  <div style="display:flex;align-items:center;gap:1rem;"><a href="#checkout" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Pricing</a><a href="YOUR_CALENDLY_LINK" class="nav-cta">Book free call</a></div>
 </nav>
 
 <!-- HERO -->
@@ -822,8 +832,8 @@
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
-  <div class="trust-item"><span class="check">✓</span> AI-powered application writing</div>
-  <div class="trust-item"><span class="check">✓</span> First Class Finance degree, University of Exeter</div>
+  <div class="trust-item"><span class="check">✓</span> AI-accelerated applications — faster than traditional agencies</div>
+  <div class="trust-item"><span class="check">✓</span> Specialist Grant Consultancy — IFRS Certified Accountants</div>
   <div class="trust-item"><span class="check">✓</span> Fully remote — serving all UK businesses</div>
   <div class="trust-item"><span class="check">✓</span> No win, minimal fee</div>
   <div class="trust-item"><span class="check">✓</span> Free eligibility check on every call</div>
@@ -972,7 +982,10 @@
           <li>You write and submit applications</li>
           <li>Email support</li>
         </ul>
-        <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Get started</a>
+        <div class="pricing-btn-group">
+          <a href="YOUR_STRIPE_RADAR_LINK" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £149/mo</a>
+          <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Book a call first</a>
+        </div>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-badge">Most popular</div>
@@ -988,7 +1001,10 @@
           <li>Monthly strategy call</li>
           <li>Priority turnaround</li>
         </ul>
-        <a href="YOUR_CALENDLY_LINK" class="pricing-cta dark">Book free eligibility check</a>
+        <div class="pricing-btn-group">
+          <a href="YOUR_STRIPE_GROWTH_LINK" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £499/mo</a>
+          <a href="YOUR_CALENDLY_LINK" class="pricing-cta light" style="color:#fff;border-color:rgba(255,255,255,0.3)">Book free call first</a>
+        </div>
       </div>
       <div class="pricing-card">
         <div class="pricing-tier">Full Service</div>
@@ -1003,7 +1019,10 @@
           <li>Dedicated account management</li>
           <li>First in line for new schemes</li>
         </ul>
-        <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Get started</a>
+        <div class="pricing-btn-group">
+          <a href="YOUR_STRIPE_UNLIMITED_LINK" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £999/mo</a>
+          <a href="YOUR_CALENDLY_LINK" class="pricing-cta light">Book a call first</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1067,6 +1086,73 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- DIRECT CHECKOUT -->
+<section id="checkout" style="background:var(--warm-white);padding:6rem 4rem;">
+  <div class="section-inner">
+    <div class="section-label">Get started now</div>
+    <h2 class="section-heading">Choose your plan and<br><em>start immediately</em></h2>
+    <p class="section-sub">No lengthy onboarding. Select your tier, complete checkout, and we reach out within 24 hours to begin your grant eligibility assessment.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;">
+
+      <!-- RADAR CHECKOUT -->
+      <div style="border:1px solid var(--border);border-radius:4px;padding:2rem;background:var(--cream);">
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Starter</div>
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Radar</div>
+        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--ink);line-height:1;margin:0.75rem 0 0.25rem;">£149<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:var(--muted);">/mo</span></div>
+        <div style="font-size:0.78rem;color:var(--gold);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">+ 7% success fee on awarded grants</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;">
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Monthly grant scan &amp; eligibility report</li>
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Sector-specific monitoring</li>
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>You write and submit applications</li>
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Email support</li>
+        </ul>
+        <a href="YOUR_STRIPE_RADAR_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £149/mo →</a>
+        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
+      </div>
+
+      <!-- GROWTH CHECKOUT (featured) -->
+      <div style="border:1px solid var(--ink);border-radius:4px;padding:2rem;background:var(--ink);transform:scale(1.03);position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+        <div style="position:absolute;top:-0.75rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 1rem;border-radius:20px;white-space:nowrap;">Most popular</div>
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">Growth</div>
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:0.25rem;">Done-for-you</div>
+        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:#fff;line-height:1;margin:0.75rem 0 0.25rem;">£499<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:rgba(255,255,255,0.5);">/mo</span></div>
+        <div style="font-size:0.78rem;color:var(--gold-light);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.1);">+ 7% success fee on awarded grants</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;">
+          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>Everything in Radar</li>
+          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>1 full application written &amp; submitted/month</li>
+          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>AI-powered drafting, expert review</li>
+          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>Monthly strategy call</li>
+          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>Priority turnaround</li>
+        </ul>
+        <a href="YOUR_STRIPE_GROWTH_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--gold);color:var(--ink);font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £499/mo →</a>
+        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.6);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.2);">Book a call first</a>
+      </div>
+
+      <!-- UNLIMITED CHECKOUT -->
+      <div style="border:1px solid var(--border);border-radius:4px;padding:2rem;background:var(--cream);">
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Full Service</div>
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Unlimited</div>
+        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--ink);line-height:1;margin:0.75rem 0 0.25rem;">£999<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:var(--muted);">/mo</span></div>
+        <div style="font-size:0.78rem;color:var(--gold);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">+ 5% success fee on awarded grants</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;">
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Everything in Done-for-you</li>
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Up to 3 applications per month</li>
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Compliance &amp; reporting support</li>
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Quarterly strategy review</li>
+          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Dedicated account management</li>
+        </ul>
+        <a href="YOUR_STRIPE_UNLIMITED_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £999/mo →</a>
+        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:2rem;">All plans include a 30-day notice period. Cancel anytime. Success fee applies only when a grant is awarded to your business.</p>
   </div>
 </section>
 
