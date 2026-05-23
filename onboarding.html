@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Onboarding — Apex Funding Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0F1923; --gold: #C9A84C; --gold-dark: #9A7A2C; --gold-pale: #FAF4E6;
+    --cream: #F5F2EC; --warm-white: #FAFAF8; --border: rgba(15,25,35,0.12);
+    --muted: #6B7280; --slate: #374151; --success: #059669;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--warm-white); color: var(--ink); min-height: 100vh; }
+  nav {
+    background: var(--ink); padding: 1rem 2rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo { font-size: 1rem; font-weight: 500; color: white; text-decoration: none; letter-spacing: 0.03em; }
+  .nav-logo span { color: var(--gold); }
+  .page-wrap { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  .form-header {
+    background: var(--ink); border-radius: 8px; padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 16px;
+  }
+  .logo-mark {
+    width: 48px; height: 48px; border: 1.5px solid var(--gold);
+    border-radius: 4px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .logo-mark svg { width: 26px; height: 26px; }
+  .hdr-title { font-size: 1.1rem; font-weight: 500; color: white; margin-bottom: 3px; }
+  .hdr-sub { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .progress-wrap {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 1.5rem; background: var(--cream);
+    border-radius: 8px; padding: 1rem 1.25rem;
+    border: 0.5px solid var(--border);
+  }
+  .prog-step { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .prog-dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1.5px solid var(--border); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 500; color: var(--muted);
+    transition: all 0.2s; flex-shrink: 0; background: white;
+  }
+  .prog-dot.active { background: var(--ink); color: var(--gold); border-color: var(--ink); }
+  .prog-dot.done { background: #ECFDF5; border-color: #059669; color: #059669; }
+  .prog-label { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  .prog-line { flex: 1; height: 0.5px; background: var(--border); }
+  .section { display: none; }
+  .section.active { display: block; }
+  .sec-card {
+    background: white; border: 0.5px solid var(--border);
+    border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 1rem;
+  }
+  .sec-eyebrow {
+    font-size: 11px; font-weight: 500; color: var(--gold-dark);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    display: flex; align-items: center; gap: 6px; margin-bottom: 0.4rem;
+  }
+  .sec-eyebrow i { font-size: 14px; }
+  .sec-title { font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+  .sec-desc { font-size: 0.875rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; }
+  .field { margin-bottom: 1.1rem; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.1rem; }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 5px; }
+  .req { color: var(--gold); margin-left: 2px; }
+  .hint { font-size: 11.5px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+  input[type=text], input[type=email], input[type=tel], input[type=url],
+  select, textarea {
+    width: 100%; padding: 0.55rem 0.85rem;
+    border: 0.5px solid var(--border); border-radius: 6px;
+    font-family: var(--sans); font-size: 13.5px; color: var(--ink);
+    background: white; outline: none; transition: border-color 0.15s;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+  textarea { resize: vertical; min-height: 85px; line-height: 1.55; }
+  .radio-group { display: flex; flex-direction: column; gap: 6px; margin-top: 5px; }
+  .radio-opt {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border: 0.5px solid var(--border);
+    border-radius: 8px; cursor: pointer; font-size: 13.5px;
+    color: var(--ink); transition: all 0.15s; font-weight: 400;
+  }
+  .radio-opt:hover { background: var(--cream); border-color: rgba(201,168,76,0.4); }
+  .radio-opt input[type=radio] { width: auto; flex-shrink: 0; accent-color: var(--gold); }
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 5px; }
+  .check-opt {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 9px 11px; border: 0.5px solid var(--border);
+    border-radius: 8px; cursor: pointer; font-size: 12.5px;
+    color: var(--ink); transition: all 0.15s; font-weight: 400; line-height: 1.4;
+  }
+  .check-opt:hover { background: var(--cream); }
+  .check-opt input[type=checkbox] { width: auto; flex-shrink: 0; margin-top: 2px; accent-color: var(--gold); }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 1.25rem 0; }
+  .gold-note {
+    background: var(--gold-pale); border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0; padding: 0.75rem 1rem;
+    font-size: 12.5px; color: #412402; line-height: 1.55; margin-bottom: 1.25rem;
+  }
+  .gold-note strong { color: #1a0d00; font-weight: 500; }
+  .btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.75rem; }
+  .btn-primary {
+    padding: 0.7rem 1.75rem; background: var(--ink); color: var(--gold);
+    border: none; border-radius: 6px; font-family: var(--sans);
+    font-size: 13.5px; font-weight: 500; cursor: pointer;
+    letter-spacing: 0.02em; transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+  }
+  .btn-primary:hover { background: #1a2e44; }
+  .btn-back {
+    padding: 0.7rem 1.25rem; background: transparent; color: var(--muted);
+    border: 0.5px solid var(--border); border-radius: 6px;
+    font-family: var(--sans); font-size: 13.5px; cursor: pointer;
+    transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+  }
+  .btn-back:hover { background: var(--cream); }
+  .success-wrap {
+    display: none; text-align: center;
+    background: white; border: 0.5px solid var(--border);
+    border-radius: 12px; padding: 3rem 2rem;
+  }
+  .success-icon {
+    width: 60px; height: 60px; background: #ECFDF5; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.25rem; font-size: 26px; color: #059669;
+  }
+  .next-steps {
+    background: var(--cream); border-radius: 8px;
+    padding: 1.25rem 1.5rem; max-width: 400px;
+    margin: 1.5rem auto 0; text-align: left;
+  }
+  .next-step-item {
+    display: flex; gap: 10px; font-size: 13.5px;
+    color: var(--slate); margin-bottom: 0.6rem; line-height: 1.5;
+  }
+  .step-num { color: var(--gold); font-weight: 500; flex-shrink: 0; }
+  @media (max-width: 600px) {
+    .field-row { grid-template-columns: 1fr; }
+    .check-grid { grid-template-columns: 1fr; }
+    .progress-wrap { overflow-x: auto; }
+    .prog-label { display: none; }
+    .page-wrap { padding: 1.5rem 1rem 3rem; }
+    .sec-card { padding: 1.25rem 1.25rem; }
+    .form-header { padding: 1.25rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-mark">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="12,2 22,20 2,20" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+      <line x1="12" y1="6" x2="12" y2="15" stroke="#C9A84C" stroke-width="1"/>
+      <line x1="7" y1="15" x2="17" y2="15" stroke="#C9A84C" stroke-width="1"/>
+    </svg>
+  </div>
+  <a href="/" class="nav-logo">Apex <span>Funding</span> Partners</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="form-header">
+    <div>
+      <div class="hdr-title">Client onboarding form</div>
+      <div class="hdr-sub">Takes 10–15 minutes &nbsp;·&nbsp; All information is strictly confidential &nbsp;·&nbsp; Apex Funding Partners</div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="prog-step" onclick="goTo(0)">
+      <div class="prog-dot active" id="dot0">1</div>
+      <span class="prog-label">About you</span>
+    </div>
+    <div class="prog-line"></div>
+    <div class="prog-step" onclick="goTo(1)">
+      <div class="prog-dot" id="dot1">2</div>
+      <span class="prog-label">Your business</span>
+    </div>
+    <div class="prog-line"></div>
+    <div class="prog-step" onclick="goTo(2)">
+      <div class="prog-dot" id="dot2">3</div>
+      <span class="prog-label">Financials</span>
+    </div>
+    <div class="prog-line"></div>
+    <div class="prog-step" onclick="goTo(3)">
+      <div class="prog-dot" id="dot3">4</div>
+      <span class="prog-label">R&amp;D activity</span>
+    </div>
+    <div class="prog-line"></div>
+    <div class="prog-step" onclick="goTo(4)">
+      <div class="prog-dot" id="dot4">5</div>
+      <span class="prog-label">Homeowner</span>
+    </div>
+  </div>
+
+  <div class="section active" id="sec0">
+    <div class="sec-card">
+      <div class="sec-eyebrow"><i class="ti ti-user"></i> Section 1 of 5</div>
+      <div class="sec-title">About you</div>
+      <div class="sec-desc">Your contact details and the type of service you are looking for.</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Full name <span class="req">*</span></label>
+          <input type="text" placeholder="e.g. Sarah Ahmed">
+        </div>
+        <div class="field">
+          <label>Email address <span class="req">*</span></label>
+          <input type="email" placeholder="you@company.com">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Phone number</label>
+          <input type="tel" placeholder="+44 7700 000000">
+        </div>
+        <div class="field">
+          <label>Your role / job title</label>
+          <input type="text" placeholder="e.g. Founder, Director, Owner">
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="field">
+        <label>What are you looking for help with? <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="service"> Business grant or R&amp;D tax credit — I run a company</label>
+          <label class="radio-opt"><input type="radio" name="service"> Homeowner grant — energy upgrades, insulation, or disability adaptations</label>
+          <label class="radio-opt"><input type="radio" name="service"> Both — I need help with my business and my home</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>How did you hear about Apex Funding Partners?</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Google search</option><option>Google Ads</option><option>LinkedIn</option>
+          <option>Referral from accountant</option><option>Referral from a contact</option>
+          <option>Instagram or Facebook</option><option>TikTok</option><option>Other</option>
+        </select>
+      </div>
+      <div class="btn-row">
+        <div></div>
+        <button class="btn-primary" onclick="goTo(1)">Continue <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="sec1">
+    <div class="sec-card">
+      <div class="sec-eyebrow"><i class="ti ti-building"></i> Section 2 of 5</div>
+      <div class="sec-title">Your business</div>
+      <div class="sec-desc">Tell us about the company so we can identify the right grant opportunities.</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Company name <span class="req">*</span></label>
+          <input type="text" placeholder="Legal registered name">
+        </div>
+        <div class="field">
+          <label>Companies House number</label>
+          <input type="text" placeholder="e.g. 12345678">
+          <div class="hint">8-digit number from Companies House. Leave blank if sole trader.</div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Company website</label>
+          <input type="url" placeholder="https://yourcompany.com">
+        </div>
+        <div class="field">
+          <label>Date of incorporation</label>
+          <input type="text" placeholder="e.g. March 2021">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Business structure <span class="req">*</span></label>
+          <select>
+            <option value="">Select one</option>
+            <option>Limited company (Ltd)</option><option>Sole trader</option>
+            <option>LLP</option><option>Partnership</option>
+            <option>CIC / Social enterprise</option><option>About to incorporate</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Number of employees</label>
+          <select>
+            <option value="">Select one</option>
+            <option>Just me (1)</option><option>2–5</option><option>6–15</option>
+            <option>16–50</option><option>51–250</option><option>250+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Which sector best describes your business? <span class="req">*</span></label>
+        <select>
+          <option value="">Select one</option>
+          <option>Technology / Software / SaaS</option><option>AI / Machine learning</option>
+          <option>Construction / Built environment</option><option>Manufacturing</option>
+          <option>Clean energy / Sustainability</option><option>Healthcare / Life sciences</option>
+          <option>Food &amp; drink</option><option>Creative industries</option>
+          <option>Professional services</option><option>Retail / E-commerce</option><option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Describe what your business does <span class="req">*</span></label>
+        <textarea placeholder="In 2–4 sentences — what do you do, who do you sell to, and what problem do you solve?"></textarea>
+      </div>
+      <div class="field">
+        <label>Is the business currently trading and generating revenue?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="trading"> Yes — generating revenue</label>
+          <label class="radio-opt"><input type="radio" name="trading"> Pre-revenue — in development or early stage</label>
+          <label class="radio-opt"><input type="radio" name="trading"> Pre-launch — about to go live</label>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-back" onclick="goTo(0)"><i class="ti ti-arrow-left"></i> Back</button>
+        <button class="btn-primary" onclick="goTo(2)">Continue <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="sec2">
+    <div class="sec-card">
+      <div class="sec-eyebrow"><i class="ti ti-chart-bar"></i> Section 3 of 5</div>
+      <div class="sec-title">Financial information</div>
+      <div class="sec-desc">Helps us calculate your R&amp;D tax credit entitlement and identify qualifying grants. Estimates are fine.</div>
+      <div class="gold-note"><strong>Why we ask:</strong> R&amp;D tax credit claims are calculated as a percentage of qualifying expenditure. The more accurate the figures, the larger and more defensible the claim.</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Annual turnover (last full year)</label>
+          <select>
+            <option value="">Select range</option>
+            <option>Pre-revenue</option><option>Under £100,000</option>
+            <option>£100,000 – £500,000</option><option>£500,000 – £1M</option>
+            <option>£1M – £5M</option><option>£5M – £20M</option><option>£20M+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Financial year end month</label>
+          <select>
+            <option value="">Select month</option>
+            <option>January</option><option>February</option><option>March</option>
+            <option>April</option><option>May</option><option>June</option>
+            <option>July</option><option>August</option><option>September</option>
+            <option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Is the company currently profitable?</label>
+          <select>
+            <option value="">Select one</option>
+            <option>Yes — profitable</option><option>Loss-making</option>
+            <option>Break-even</option><option>Not sure</option>
+          </select>
+          <div class="hint">Loss-making companies can receive R&amp;D credits as a cash payment from HMRC.</div>
+        </div>
+        <div class="field">
+          <label>Have you claimed R&amp;D tax credits before?</label>
+          <select>
+            <option value="">Select one</option>
+            <option>No — never claimed</option><option>Yes — successfully</option>
+            <option>Yes — claim was rejected</option>
+            <option>In progress / under review</option><option>Not sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Estimated staff costs in last 12 months (salaries + NI + pension)</label>
+        <select>
+          <option value="">Select range</option>
+          <option>Under £50,000</option><option>£50,000 – £150,000</option>
+          <option>£150,000 – £500,000</option><option>£500,000 – £1M</option><option>£1M+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Estimated cloud / hosting / computing costs in last 12 months</label>
+        <select>
+          <option value="">Select range</option>
+          <option>None</option><option>Under £10,000</option>
+          <option>£10,000 – £50,000</option><option>£50,000 – £200,000</option><option>£200,000+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Accountant name and contact email</label>
+        <input type="text" placeholder="Name — email@accountancy.com">
+        <div class="hint">R&amp;D claims are submitted via your Corporation Tax return. We work directly with your accountant to file the claim.</div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-back" onclick="goTo(1)"><i class="ti ti-arrow-left"></i> Back</button>
+        <button class="btn-primary" onclick="goTo(3)">Continue <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="sec3">
+    <div class="sec-card">
+      <div class="sec-eyebrow"><i class="ti ti-bulb"></i> Section 4 of 5</div>
+      <div class="sec-title">Innovation &amp; R&amp;D activity</div>
+      <div class="sec-desc">The most important section for R&amp;D tax credits. Answer as fully as you can — more detail leads directly to a larger claim.</div>
+      <div class="gold-note"><strong>What counts as R&amp;D:</strong> You do not need a lab or white coats. If your team has spent time solving a technical or scientific problem that couldn't be resolved by a competent professional simply looking it up — that qualifies.</div>
+      <div class="field">
+        <label>Does your business do any of the following? Tick all that apply.</label>
+        <div class="check-grid">
+          <label class="check-opt"><input type="checkbox"> Build or improve software, apps, or platforms</label>
+          <label class="check-opt"><input type="checkbox"> Develop new products or materials</label>
+          <label class="check-opt"><input type="checkbox"> Work with AI, machine learning, or data models</label>
+          <label class="check-opt"><input type="checkbox"> Design new manufacturing processes</label>
+          <label class="check-opt"><input type="checkbox"> Develop APIs, integrations, or infrastructure</label>
+          <label class="check-opt"><input type="checkbox"> Build automation or robotics systems</label>
+          <label class="check-opt"><input type="checkbox"> Solve engineering or construction challenges</label>
+          <label class="check-opt"><input type="checkbox"> Conduct scientific or clinical research</label>
+          <label class="check-opt"><input type="checkbox"> Develop clean energy or sustainability solutions</label>
+          <label class="check-opt"><input type="checkbox"> None of the above</label>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="field">
+        <label>Describe the main technical project your team has worked on in the last 12 months <span class="req">*</span></label>
+        <textarea placeholder="e.g. We built a machine learning model that classifies legal documents by category. The challenge was achieving reliable accuracy on unstructured text without supervised training data..." style="min-height:100px"></textarea>
+      </div>
+      <div class="field">
+        <label>What was technically difficult or uncertain about this work?</label>
+        <textarea placeholder="e.g. Existing NLP libraries couldn't handle domain-specific legal language. We had to develop custom training approaches and the outcome was uncertain throughout..."></textarea>
+      </div>
+      <div class="field">
+        <label>Approximately what percentage of your team's time was spent on this type of work?</label>
+        <select>
+          <option value="">Select range</option>
+          <option>Under 10%</option><option>10–25%</option><option>25–50%</option>
+          <option>50–75%</option><option>Over 75%</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Are there specific grants you already know about and want to apply for?</label>
+        <input type="text" placeholder="e.g. Innovate UK Smart Grants, R&D tax credits, local Growth Hub grant">
+      </div>
+      <div class="field">
+        <label>Anything else you'd like us to know?</label>
+        <textarea placeholder="Any context that would help us identify the best opportunities for you..."></textarea>
+      </div>
+      <div class="btn-row">
+        <button class="btn-back" onclick="goTo(2)"><i class="ti ti-arrow-left"></i> Back</button>
+        <button class="btn-primary" onclick="goTo(4)">Continue <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="sec4">
+    <div class="sec-card">
+      <div class="sec-eyebrow"><i class="ti ti-home"></i> Section 5 of 5</div>
+      <div class="sec-title">Homeowner grants</div>
+      <div class="sec-desc">Complete this section if you are interested in home energy upgrades, insulation, or disability adaptation grants. Skip to submit if this doesn't apply.</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Your postcode</label>
+          <input type="text" placeholder="e.g. SW1A 1AA">
+          <div class="hint">Grant eligibility varies by local council and region.</div>
+        </div>
+        <div class="field">
+          <label>Do you own or rent the property?</label>
+          <select>
+            <option value="">Select one</option>
+            <option>Own — freehold</option><option>Own — leasehold</option>
+            <option>Private renter</option><option>Social housing tenant</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Type of property</label>
+        <select>
+          <option value="">Select one</option>
+          <option>Detached house</option><option>Semi-detached house</option>
+          <option>Terraced house</option><option>Flat / apartment</option>
+          <option>Bungalow</option><option>Listed building</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Which grants are you interested in? Tick all that apply.</label>
+        <div class="check-grid">
+          <label class="check-opt"><input type="checkbox"> Boiler Upgrade Scheme (heat pump — up to £7,500)</label>
+          <label class="check-opt"><input type="checkbox"> Great British Insulation Scheme</label>
+          <label class="check-opt"><input type="checkbox"> ECO4 scheme (free energy upgrades)</label>
+          <label class="check-opt"><input type="checkbox"> Disabled Facilities Grant (up to £30,000)</label>
+          <label class="check-opt"><input type="checkbox"> Solar panel funding</label>
+          <label class="check-opt"><input type="checkbox"> Not sure — want a full eligibility check</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Do you or anyone in the household receive any of the following?</label>
+        <div class="check-grid">
+          <label class="check-opt"><input type="checkbox"> Universal Credit</label>
+          <label class="check-opt"><input type="checkbox"> Pension Credit</label>
+          <label class="check-opt"><input type="checkbox"> Child Tax Credit</label>
+          <label class="check-opt"><input type="checkbox"> Working Tax Credit</label>
+          <label class="check-opt"><input type="checkbox"> Housing Benefit</label>
+          <label class="check-opt"><input type="checkbox"> None of the above</label>
+        </div>
+        <div class="hint">Certain benefits unlock additional eligibility. This does not affect your ability to apply.</div>
+      </div>
+      <div class="field">
+        <label>Current EPC (Energy Performance Certificate) rating</label>
+        <select>
+          <option value="">Select one</option>
+          <option>A</option><option>B</option><option>C</option><option>D</option>
+          <option>E</option><option>F</option><option>G</option>
+          <option>Not sure / don't have one</option>
+        </select>
+        <div class="hint">A D–G rating typically means you qualify for insulation and heating grants.</div>
+      </div>
+      <div class="field">
+        <label>Any additional information about your home or the work needed?</label>
+        <textarea placeholder="e.g. The boiler is 15 years old and we have no loft insulation..."></textarea>
+      </div>
+      <div class="divider"></div>
+      <div class="field">
+        <label style="display:flex;align-items:flex-start;gap:10px;font-weight:400;cursor:pointer">
+          <input type="checkbox" style="width:auto;margin-top:2px;flex-shrink:0;accent-color:var(--gold)">
+          <span style="font-size:13px;color:var(--muted);line-height:1.55">I confirm the information provided is accurate to the best of my knowledge. I understand that Apex Funding Partners will use this information solely to assess my grant eligibility and provide their services.</span>
+        </label>
+      </div>
+      <div class="btn-row">
+        <button class="btn-back" onclick="goTo(3)"><i class="ti ti-arrow-left"></i> Back</button>
+        <button class="btn-primary" onclick="submitForm()">Submit <i class="ti ti-check"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="success-wrap" id="success">
+    <div class="success-icon"><i class="ti ti-check"></i></div>
+    <div style="font-size:1.15rem;font-weight:500;color:var(--ink);margin-bottom:0.5rem">Form submitted successfully</div>
+    <div style="font-size:0.9rem;color:var(--muted);max-width:420px;margin:0 auto;line-height:1.65">Thank you. We will review your information and come back to you within 72 hours with a full eligibility report and the next steps.</div>
+    <div class="next-steps">
+      <div style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.75rem">What happens next</div>
+      <div class="next-step-item"><span class="step-num">1.</span> We review your submission and identify all qualifying grants</div>
+      <div class="next-step-item"><span class="step-num">2.</span> We send your eligibility report within 72 hours</div>
+      <div class="next-step-item"><span class="step-num">3.</span> We agree scope and begin your first application</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let cur = 0;
+const TOTAL = 5;
+function goTo(n) {
+  document.getElementById('sec'+cur).classList.remove('active');
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.getElementById('dot'+i);
+    d.classList.remove('active','done');
+    if (i < n) { d.classList.add('done'); d.innerHTML = '<i class="ti ti-check" style="font-size:12px"></i>'; }
+    else if (i === n) { d.classList.add('active'); d.textContent = i+1; }
+    else { d.textContent = i+1; }
+  }
+  document.getElementById('sec'+n).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  cur = n;
+}
+function submitForm() {
+  document.getElementById('sec4').classList.remove('active');
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.getElementById('dot'+i);
+    d.classList.remove('active');
+    d.classList.add('done');
+    d.innerHTML = '<i class="ti ti-check" style="font-size:12px"></i>';
+  }
+  document.getElementById('success').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
