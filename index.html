@@ -789,24 +789,28 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Apex <span>Funding</span> Partners</a>
-  <div style="display:flex;align-items:center;gap:1rem;"><a href="#checkout" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Pricing</a><a href="YOUR_CALENDLY_LINK" class="nav-cta">Book free call</a></div>
+  <div style="display:flex;align-items:center;gap:1rem;"><a href="#homeowners" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Homeowners</a><a href="#checkout" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Pricing</a><a href="YOUR_CALENDLY_LINK" class="nav-cta">Book free call</a></div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">UK Grant Consultancy</div>
+    <div class="hero-eyebrow">UK Grant Consultancy — For Businesses & Homeowners</div>
     <h1 class="hero-headline">
       We win you grants.<br>
       You pay us <em>only</em><br>
       when we do.
     </h1>
     <p class="hero-sub">
-      Apex Funding Partners finds grants your business qualifies for, writes the application, and submits it. <strong>Our fee is tied to your success — not our effort.</strong> If we don't win, you've barely spent a thing.
+      Whether you run a business or own a home — there is government money available to you right now that you are almost certainly not claiming. <strong>We find it, apply for it, and do all the work.</strong> You pay when it lands.
     </p>
-    <div class="hero-actions">
-      <a href="YOUR_CALENDLY_LINK" class="btn-primary">Book your free eligibility check</a>
-      <p class="hero-note">20-minute call, no commitment</p>
+    <p style="font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">I am a...</p>
+    <div class="hero-actions" style="flex-direction:column;align-items:flex-start;gap:0.75rem;">
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <a href="#" onclick="document.getElementById('checkout').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary" style="background:var(--ink);">Business owner</a>
+        <a href="#" onclick="document.getElementById('homeowners').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary" style="background:var(--gold);color:var(--ink);">Homeowner</a>
+      </div>
+      <p class="hero-note">Both options include a free eligibility check — no commitment</p>
     </div>
   </div>
   <div class="hero-right">
@@ -836,7 +840,7 @@
   <div class="trust-item"><span class="check">✓</span> Specialist Grant Consultancy — IFRS Certified Accountants</div>
   <div class="trust-item"><span class="check">✓</span> Fully remote — serving all UK businesses</div>
   <div class="trust-item"><span class="check">✓</span> No win, minimal fee</div>
-  <div class="trust-item"><span class="check">✓</span> Free eligibility check on every call</div>
+  <div class="trust-item"><span class="check">✓</span> Businesses &amp; homeowners — both qualify for funding</div>
 </div>
 
 <!-- THE ANGLE -->
@@ -1086,6 +1090,167 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+
+<!-- HOMEOWNERS SECTION -->
+<section id="homeowners" style="background:var(--ink);color:white;padding:7rem 4rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.25rem;">
+      <span style="display:block;width:1.5rem;height:1px;background:var(--gold-light);"></span>
+      For homeowners
+    </div>
+
+    <h2 style="font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;color:#fff;margin-bottom:1.25rem;">
+      The government is offering you<br>
+      <em style="font-style:italic;color:var(--gold-light);font-weight:300;">thousands of pounds.</em><br>
+      Most homeowners never claim it.
+    </h2>
+
+    <p style="font-size:1.05rem;color:rgba(255,255,255,0.65);line-height:1.75;max-width:620px;margin-bottom:3.5rem;">
+      There are billions in active UK government grants available to ordinary homeowners right now — for boilers, insulation, solar panels, disability adaptations, and more. The money exists. The eligibility is broad. The barrier is the application process, which is deliberately complex and time-consuming. We do it for you.
+    </p>
+
+    <!-- STAT STRIP -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem;">
+      <div style="border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:2rem;">
+        <div style="font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--gold-light);line-height:1;margin-bottom:0.5rem;">£7,500</div>
+        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Average heat pump grant</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);">Boiler Upgrade Scheme — available now</div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:2rem;">
+        <div style="font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--gold-light);line-height:1;margin-bottom:0.5rem;">£30,000</div>
+        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Max Disabled Facilities Grant</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);">Stairlifts, wet rooms, home adaptations</div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:2rem;">
+        <div style="font-family:var(--serif);font-size:3rem;font-weight:600;color:var(--gold-light);line-height:1;margin-bottom:0.5rem;">£1B+</div>
+        <div style="font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:0.3rem;">Great British Insulation Scheme budget</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);">Underspent every year — money going unused</div>
+      </div>
+    </div>
+
+    <!-- WHAT'S AVAILABLE -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="display:block;width:1.5rem;height:1px;background:var(--gold-light);"></span>What you could be claiming</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;">
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
+          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">Boiler Upgrade Scheme</div>
+          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Up to £7,500</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Replace your gas boiler with a heat pump and the government covers a significant portion of the cost. Available to homeowners across England and Wales.</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
+          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">Great British Insulation Scheme</div>
+          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Free insulation installation</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Loft, cavity wall, and solid wall insulation fully funded for eligible homeowners. Eligibility is broader than most people expect — income thresholds have been relaxed.</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
+          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">Disabled Facilities Grant</div>
+          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Up to £30,000</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Local council funding for home adaptations — stairlifts, accessible bathrooms, widened doorways. Available to homeowners and renters. The application process is notoriously difficult. We handle it entirely.</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
+          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">ECO4 Scheme</div>
+          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Free home energy upgrades</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Heating systems, insulation, and energy measures fully funded through energy supplier obligations. Over 4 million homes are eligible. The referral and assessment chain is complex — we navigate it for you.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WHY IT'S HARD -->
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:2.5rem;margin-bottom:3.5rem;">
+      <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:1rem;">Why most people never claim</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+        <div>
+          <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">The paperwork</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Each scheme has its own application portal, eligibility criteria, supporting documents, and approval chain. Most people start and abandon within an hour.</p>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">The jargon</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Government grant schemes are written by civil servants for civil servants. EPC ratings, primary heat sources, means testing, and means-tested benefit triggers — it's deliberately impenetrable.</p>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">The time</div>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">A single grant application takes 4–8 hours minimum if you know what you're doing. Most homeowners don't — so it takes days of back-and-forth before they give up entirely.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT WE DO -->
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div style="font-family:var(--serif);font-size:1.8rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">We do the entire thing for you.</div>
+      <p style="font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px;margin:0 auto 2rem;">For a flat fee smaller than one month's energy bill, we identify what you qualify for, gather the documents, complete the application, and submit it. You do nothing except answer a few questions.</p>
+      <a href="#homeowner-pricing" style="display:inline-block;padding:1rem 2.5rem;background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:0.9rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;">See homeowner pricing →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOMEOWNER PRICING -->
+<section id="homeowner-pricing" style="background:var(--cream);padding:6rem 4rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">
+      <span style="display:block;width:1.5rem;height:1px;background:var(--gold);"></span>
+      Homeowner pricing
+    </div>
+    <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:600;line-height:1.15;letter-spacing:-0.025em;color:var(--ink);margin-bottom:0.75rem;">Simple, flat fees.<br><em style="font-style:italic;color:var(--gold);font-weight:300;">No surprises.</em></h2>
+    <p style="font-size:1rem;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:3rem;">No monthly retainer. No subscription. Pay once per service — and only pay for the application fee if we move forward together after the eligibility check.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:780px;">
+
+      <!-- TIER 1: ELIGIBILITY REPORT -->
+      <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:4px;padding:2.5rem 2rem;position:relative;">
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Step 1</div>
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;letter-spacing:-0.02em;">Eligibility Report</div>
+        <div style="font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--ink);line-height:1;margin:1rem 0 0.25rem;">£49</div>
+        <div style="font-size:0.78rem;color:var(--gold);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">One-off payment</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem;">
+          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>We assess every grant you qualify for across all UK schemes</li>
+          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Full written report delivered within 72 hours</li>
+          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Potential value of each grant clearly shown</li>
+          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>No obligation to proceed to applications</li>
+          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>£49 deducted from any application fee if you continue</li>
+        </ul>
+        <a href="YOUR_STRIPE_HOMEOWNER_REPORT_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;">Get my eligibility report →</a>
+      </div>
+
+      <!-- TIER 2: FULL APPLICATION -->
+      <div style="background:var(--ink);border:1px solid var(--ink);border-radius:4px;padding:2.5rem 2rem;position:relative;transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+        <div style="position:absolute;top:-0.75rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 1rem;border-radius:20px;white-space:nowrap;">Best value</div>
+        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.75rem;">Step 2</div>
+        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:0.25rem;letter-spacing:-0.02em;">Full Application</div>
+        <div style="font-family:var(--serif);font-size:3rem;font-weight:700;color:#fff;line-height:1;margin:1rem 0 0.25rem;">£149<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:rgba(255,255,255,0.45);"> /application</span></div>
+        <div style="font-size:0.78rem;color:var(--gold-light);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.1);">Flat fee — or 8% of grant awarded, whichever you prefer</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem;">
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We complete the entire application on your behalf</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We gather all supporting documents and evidence</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We liaise with councils, energy assessors, and installers</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We follow up until a decision is made</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>You do nothing except provide the information we ask for</li>
+        </ul>
+        <a href="YOUR_STRIPE_HOMEOWNER_APP_LINK" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--gold);color:var(--ink);font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.6rem;">Start my application →</a>
+        <a href="YOUR_CALENDLY_LINK" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.55);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.15);">Speak to us first</a>
+      </div>
+
+    </div>
+
+    <!-- REASSURANCE ROW -->
+    <div style="display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);">
+      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>No monthly subscription</div>
+      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>No win, no additional fee on the success-fee option</div>
+      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>£49 eligibility fee credited toward application fee</div>
+      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Available to homeowners and renters across the UK</div>
+    </div>
+
   </div>
 </section>
 
