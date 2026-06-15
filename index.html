@@ -2,1681 +2,1274 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XCMDX3BHTC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XCMDX3BHTC');
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apex Funding Partners — UK Grant Consultancy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Cura">
+<meta name="theme-color" content="#FFFFFF">
+<title>Cura — Clinic Intelligence</title>
+<link rel="manifest" href='data:application/manifest+json,{"name":"Cura","short_name":"Cura","start_url":".","display":"standalone","background_color":"%23FFFFFF","theme_color":"%234F46E5","icons":[]}'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
-    --ink: #0f0e0b;
-    --cream: #f5f2ec;
-    --warm-white: #faf9f6;
-    --gold: #b8860b;
-    --gold-light: #d4a017;
-    --gold-pale: #f0e6c8;
-    --slate: #3a3830;
-    --muted: #7a7668;
-    --border: rgba(15,14,11,0.12);
-    --serif: 'Fraunces', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
+    --bg:        #FFFFFF;
+    --canvas:    #FBFBFD;
+    --panel:     #FFFFFF;
+    --indigo:    #4F46E5;
+    --indigo-d:  #4338CA;
+    --indigo-l:  #6366F1;
+    --indigo-50: #EEF2FF;
+    --indigo-100:#E0E7FF;
+    --ink:       #0F172A;
+    --ink-2:     #334155;
+    --gray-700:  #475569;
+    --gray-500:  #64748B;
+    --gray-400:  #94A3B8;
+    --gray-300:  #CBD5E1;
+    --line:      #E9EAEF;
+    --line-2:    #F1F2F6;
+    --green:     #059669;
+    --green-bg:  #ECFDF5;
+    --amber:     #D97706;
+    --amber-bg:  #FFFBEB;
+    --red:       #DC2626;
+    --red-bg:    #FEF2F2;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,0.04);
+    --shadow:    0 4px 16px rgba(15,23,42,0.06);
+    --shadow-lg: 0 12px 40px rgba(15,23,42,0.10);
+    --radius:    12px;
+    --radius-sm: 8px;
   }
 
-  html { scroll-behavior: smooth; overflow-x: hidden; }
-  body { overflow-x: hidden; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
   body {
-    font-family: var(--sans);
-    background: var(--warm-white);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
     color: var(--ink);
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-size: 14px;
+    line-height: 1.5;
+    font-feature-settings: "cv11", "ss01";
   }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 4rem;
-    background: rgba(245,242,236,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--gold); }
-  .nav-cta {
-    display: inline-block;
-    padding: 0.55rem 1.4rem;
-    background: var(--ink);
-    color: var(--cream);
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
+  .tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-left {
+  /* ─────────────────────────  APP SHELL  ───────────────────────── */
+  .app { display: none; min-height: 100vh; }
+  .app.active { display: flex; }
+
+  .sidebar {
+    width: 248px;
+    flex-shrink: 0;
+    background: var(--canvas);
+    border-right: 1px solid var(--line);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 5rem 4rem 5rem 4rem;
-    position: relative;
-    z-index: 2;
-  }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-  }
-  .hero-headline {
-    font-family: var(--serif);
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin-bottom: 1.5rem;
-  }
-  .hero-headline em {
-    font-style: italic;
-    color: var(--gold);
-    font-weight: 300;
-  }
-  .hero-sub {
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--slate);
-    line-height: 1.7;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
-  .hero-sub strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: var(--ink);
-    color: var(--cream);
-    font-family: var(--sans);
-    font-size: 0.88rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-primary::after {
-    content: '→';
-    margin-left: 0.5rem;
-    transition: transform 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--gold); }
-  .btn-primary:hover::after { transform: translateX(3px); }
-  .hero-note {
-    font-size: 0.8rem;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .hero-note::before { content: '✓'; color: var(--gold); font-weight: 700; }
-
-  .hero-right {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 3rem;
-    background: var(--ink);
-    clip-path: polygon(6% 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  .hero-stat-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px;
-    padding: 2.5rem 3rem;
-    width: 100%;
-    max-width: 520px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 460px;
-  }
-  .stat-row {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    flex: 1;
-  }
-  .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .stat-row:first-child { padding-top: 0; }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: clamp(3.5rem, 5.5vw, 5.5rem);
-    font-weight: 600;
-    color: var(--gold-light);
-    line-height: 1;
-    margin-bottom: 0.6rem;
-  }
-  .stat-label {
-    font-size: 1rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.02em;
-    line-height: 1.4;
-  }
-  .stat-note {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.38);
-    margin-top: 0.4rem;
+    padding: 22px 14px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
   }
 
-  /* ── TRUST BAR ── */
-  .trust-bar {
-    background: var(--gold-pale);
-    border-top: 1px solid rgba(184,134,11,0.2);
-    border-bottom: 1px solid rgba(184,134,11,0.2);
-    padding: 1rem 4rem;
+  .brand {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
+    gap: 9px;
+    padding: 6px 10px 22px;
   }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--slate);
-    letter-spacing: 0.02em;
-  }
-  .trust-item .check { color: var(--gold); font-size: 0.9rem; }
-
-  /* ── SECTIONS ── */
-  section { padding: 6rem 4rem; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 1.5rem;
-    height: 1px;
-    background: var(--gold);
-  }
-  .section-heading {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-  .section-heading em { font-style: italic; color: var(--gold); font-weight: 300; }
-  .section-sub {
-    font-size: 1rem;
-    color: var(--muted);
-    max-width: 560px;
-    line-height: 1.7;
-    margin-bottom: 3rem;
-  }
-
-  /* ── THE ANGLE — NO-BRAINER SECTION ── */
-  .angle-section {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 6rem 4rem;
-  }
-  .angle-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-  .angle-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .angle-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold-light); }
-  .angle-heading {
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: #fff;
-    margin-bottom: 1.5rem;
-  }
-  .angle-heading em { font-style: italic; color: var(--gold-light); font-weight: 300; }
-  .angle-body {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.75;
-    margin-bottom: 2rem;
-  }
-  .angle-body strong { color: #fff; font-weight: 500; }
-  .comparison-table { width: 100%; border-collapse: collapse; }
-  .comparison-table th {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    text-align: left;
-    padding: 0.6rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .comparison-table th:last-child { text-align: center; }
-  .comparison-table td {
-    padding: 1rem 1rem;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    vertical-align: middle;
-  }
-  .comparison-table td:first-child { color: rgba(255,255,255,0.9); }
-  .comparison-table td:last-child { text-align: center; }
-  .tag-apex {
-    display: inline-block;
-    background: rgba(212,160,23,0.2);
-    color: var(--gold-light);
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    border: 1px solid rgba(212,160,23,0.3);
-  }
-  .tag-them {
-    display: inline-block;
-    background: rgba(255,255,255,0.05);
-    color: rgba(255,255,255,0.35);
-    font-size: 0.75rem;
-    font-weight: 400;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    text-decoration: line-through;
-    text-decoration-color: rgba(255,255,255,0.2);
-  }
-
-  /* ── WHO WE HELP ── */
-  .clients-section { background: var(--cream); }
-  .clients-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .client-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    transition: all 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .client-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .client-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-  .client-card:hover::before { transform: scaleX(1); }
-  .client-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    background: var(--gold-pale);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    margin-bottom: 1.2rem;
-  }
-  .client-type {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
-  }
-  .client-desc {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.65;
-    margin-bottom: 1.2rem;
-  }
-  .client-grants {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .grant-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--gold);
-    background: var(--gold-pale);
-    padding: 0.3rem 0.7rem;
-    border-radius: 2px;
-    width: fit-content;
-  }
-  .grant-pill::before { content: '£'; font-weight: 700; }
-
-  /* ── HOW IT WORKS ── */
-  .how-section { background: var(--warm-white); }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin-top: 3rem;
-    position: relative;
-  }
-  .steps-grid::before {
-    content: '';
-    position: absolute;
-    top: 2.5rem;
-    left: 12.5%;
-    right: 12.5%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--gold), var(--gold), transparent);
-    opacity: 0.3;
-    z-index: 0;
-  }
-  .step-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 1.5rem;
-    position: relative;
-    z-index: 1;
-  }
-  .step-num {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--cream);
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.2rem;
-    position: relative;
-    z-index: 2;
+  .brand-mark {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--indigo);
+    display: grid; place-items: center;
     flex-shrink: 0;
   }
-  .step-item:nth-child(4) .step-num { background: var(--gold); }
-  .step-title {
-    font-family: var(--serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-  }
-  .step-desc {
-    font-size: 0.83rem;
-    color: var(--muted);
-    line-height: 1.6;
+  .brand-mark svg { width: 16px; height: 16px; }
+  .brand-name {
+    font-size: 16px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
   }
 
-  /* ── PRICING ── */
-  .pricing-section { background: var(--cream); }
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .pricing-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2.5rem 2rem;
-    position: relative;
-    transition: all 0.25s;
-  }
-  .pricing-card.featured {
-    background: var(--ink);
-    border-color: var(--ink);
-    transform: scale(1.03);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-  }
-  .pricing-badge {
-    position: absolute;
-    top: -0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gold);
-    color: var(--ink);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.25rem 1rem;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-  .pricing-tier {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  .pricing-card.featured .pricing-tier { color: var(--gold-light); }
-  .pricing-name {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.25rem;
-    letter-spacing: -0.02em;
-  }
-  .pricing-card.featured .pricing-name { color: #fff; }
-  .pricing-price {
-    font-family: var(--serif);
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1;
-    margin: 1rem 0 0.3rem;
-  }
-  .pricing-card.featured .pricing-price { color: #fff; }
-  .pricing-price span {
-    font-family: var(--sans);
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--muted);
-  }
-  .pricing-card.featured .pricing-price span { color: rgba(255,255,255,0.5); }
-  .pricing-success {
-    font-size: 0.8rem;
-    color: var(--gold);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .pricing-card.featured .pricing-success { color: var(--gold-light); border-color: rgba(255,255,255,0.1); }
-  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
-  .pricing-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.85rem;
-    color: var(--slate);
-    line-height: 1.4;
-  }
-  .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.7); }
-  .pricing-features li::before {
-    content: '✓';
-    color: var(--gold);
-    font-weight: 700;
-    font-size: 0.75rem;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-  }
-  .pricing-cta {
-    display: block;
-    width: 100%;
-    padding: 0.9rem;
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-  }
-  .pricing-cta.light {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--border);
-  }
-  .pricing-cta.light:hover { background: var(--ink); color: var(--cream); }
-  .pricing-cta.dark {
-    background: var(--gold);
-    color: var(--ink);
-    border: none;
-    font-weight: 600;
-  }
-  .pricing-cta.dark:hover { background: var(--gold-light); }
-
-  /* ── SECTORS ── */
-  .sectors-section { background: var(--warm-white); }
-  .sectors-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-  .sector-card {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: start;
-    transition: all 0.25s;
-    background: var(--warm-white);
-  }
-  .sector-card:hover { border-color: var(--gold); background: var(--gold-pale); }
-  .sector-num {
-    font-family: var(--serif);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--gold-pale);
-    line-height: 1;
-    -webkit-text-stroke: 1.5px var(--gold);
-  }
-  .sector-name {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-    letter-spacing: -0.01em;
-  }
-  .sector-desc {
-    font-size: 0.84rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 0.8rem;
-  }
-  .sector-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .sector-tag {
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: var(--gold);
-    background: var(--gold-pale);
-    padding: 0.2rem 0.6rem;
-    border-radius: 2px;
+  .nav-section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--gray-400);
+    padding: 8px 10px 6px;
   }
 
-  /* ── CTA SECTION ── */
-  .cta-section {
-    background: var(--ink);
-    color: white;
-    text-align: center;
-    padding: 7rem 4rem;
+  .nav-item {
+    display: flex; align-items: center; gap: 11px;
+    padding: 9px 10px;
+    border-radius: var(--radius-sm);
+    color: var(--gray-700);
+    font-weight: 500; font-size: 13.5px;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    margin-bottom: 2px;
   }
-  .cta-inner { max-width: 700px; margin: 0 auto; }
-  .cta-heading {
-    font-family: var(--serif);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.2rem;
-  }
-  .cta-heading em { font-style: italic; color: var(--gold-light); font-weight: 300; }
-  .cta-sub {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    max-width: 500px;
+  .nav-item svg { width: 17px; height: 17px; flex-shrink: 0; opacity: 0.85; }
+  .nav-item:hover { background: var(--line-2); color: var(--ink); }
+  .nav-item.active { background: var(--indigo-50); color: var(--indigo-d); }
+  .nav-item.active svg { opacity: 1; }
+  .nav-badge {
     margin-left: auto;
-    margin-right: auto;
-  }
-  .btn-gold {
-    display: inline-block;
-    padding: 1.1rem 2.5rem;
-    background: var(--gold);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-  }
-  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,134,11,0.3); }
-  .btn-gold::after { content: ' →'; }
-  .cta-reassurance {
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .cta-reassurance span::before { content: '✓ '; color: var(--gold-light); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--cream);
-    border-top: 1px solid var(--border);
-    padding: 2.5rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .footer-logo {
-    font-family: var(--serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .footer-logo span { color: var(--gold); }
-  footer p {
-    font-size: 0.78rem;
-    color: var(--muted);
+    background: var(--red); color: #fff;
+    font-size: 11px; font-weight: 600;
+    min-width: 18px; height: 18px; padding: 0 5px;
+    border-radius: 9px; display: grid; place-items: center;
   }
 
+  .sidebar-foot {
+    margin-top: auto;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .clinic-chip {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: var(--radius-sm);
+    cursor: pointer; transition: background 0.12s;
+  }
+  .clinic-chip:hover { background: var(--line-2); }
+  .clinic-logo {
+    width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+    background: var(--ink); color: #fff;
+    display: grid; place-items: center; font-weight: 700; font-size: 12px;
+  }
+  .clinic-meta { overflow: hidden; }
+  .clinic-meta .nm { font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .clinic-meta .sub { font-size: 11.5px; color: var(--gray-400); }
 
-  .pricing-btn-group { display: flex; flex-direction: column; gap: 0; }
-  .pricing-btn-group .pricing-cta { margin-bottom: 0; }
+  /* ─────────────────────────  MAIN  ───────────────────────── */
+  .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
+  .topbar {
+    height: 60px; flex-shrink: 0;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center;
+    padding: 0 28px; gap: 16px;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: saturate(180%) blur(10px);
+    position: sticky; top: 0; z-index: 20;
   }
-  .hero-eyebrow  { animation: fadeUp 0.6s ease both 0.1s; }
-  .hero-headline { animation: fadeUp 0.7s ease both 0.25s; }
-  .hero-sub      { animation: fadeUp 0.7s ease both 0.4s; }
-  .hero-actions  { animation: fadeUp 0.7s ease both 0.55s; }
-  .hero-stat-card { animation: fadeUp 0.8s ease both 0.3s; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    section { padding: 4rem 1.5rem; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 6rem 1.5rem 3rem; }
-    .hero-right {
-      clip-path: none;
-      padding: 3rem 1.5rem;
-      justify-content: center;
-    }
-    .angle-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .clients-grid, .pricing-grid, .steps-grid { grid-template-columns: 1fr; }
-    .pricing-card.featured { transform: none; }
-    .sectors-grid { grid-template-columns: 1fr; }
-    .steps-grid::before { display: none; }
-    .trust-bar { padding: 1rem 1.5rem; gap: 1.2rem; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
-    .cta-section { padding: 5rem 1.5rem; }
+  .page-title { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; }
+  .topbar-spacer { flex: 1; }
+  .live-pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12px; font-weight: 600; color: var(--green);
+    background: var(--green-bg); padding: 5px 10px; border-radius: 20px;
   }
-
-@media (max-width: 768px) {
-
-
-  /* FIX — pricing cards proper mobile layout */
-  .pricing-section { padding: 4rem 1.5rem !important; }
-  .pricing-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%,100%{ box-shadow: 0 0 0 0 rgba(5,150,105,0.4);} 50%{ box-shadow: 0 0 0 5px rgba(5,150,105,0);} }
+  .search-mini {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--canvas); border: 1px solid var(--line);
+    padding: 7px 12px; border-radius: var(--radius-sm);
+    color: var(--gray-400); font-size: 13px; width: 220px;
   }
-  .pricing-card {
-    width: 100% !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    padding: 2rem 1.5rem !important;
+  .search-mini svg { width: 15px; height: 15px; }
+  .icon-btn {
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    border: 1px solid var(--line); background: var(--bg);
+    display: grid; place-items: center; cursor: pointer; color: var(--gray-500);
+    transition: background 0.12s, color 0.12s;
   }
-  .pricing-card.featured {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-  .pricing-name {
-    font-size: 1.4rem !important;
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-  }
-  .pricing-tier {
-    white-space: normal !important;
-    word-break: normal !important;
-  }
-  .pricing-price {
-    font-size: 2.2rem !important;
-  }
-  .pricing-features li {
-    font-size: 0.85rem !important;
-    word-break: normal !important;
-    white-space: normal !important;
-  }
-  .pricing-cta {
-    font-size: 0.82rem !important;
-    padding: 0.85rem !important;
-    white-space: normal !important;
-    word-break: normal !important;
-  }
-  .pricing-btn-group {
-    width: 100% !important;
-  }
-  .pricing-btn-group .pricing-cta {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-  .section-inner {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-  /* prevent letter stacking everywhere */
-  p, h1, h2, h3, h4, span, a, li, div {
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-    hyphens: none !important;
+  .icon-btn:hover { background: var(--line-2); color: var(--ink); }
+  .avatar-me {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--indigo-100); color: var(--indigo-d);
+    display: grid; place-items: center; font-weight: 600; font-size: 13px; cursor: pointer;
   }
 
-  /* HOMEOWNER HERO SECTION */
-  #homeowners { padding: 4rem 1.5rem !important; }
-  #homeowners h2 { font-size: 2rem !important; }
-  #homeowners p { font-size: 0.95rem !important; }
+  .scroll { flex: 1; overflow-y: auto; }
+  .screen { display: none; padding: 28px; max-width: 1240px; margin: 0 auto; width: 100%; }
+  .screen.active { display: block; animation: fade 0.25s ease; }
+  @keyframes fade { from{ opacity:0; transform: translateY(6px);} to{ opacity:1; transform:none;} }
 
-  /* STAT STRIP — stack to single column */
-  #homeowners > div > div[style*="grid-template-columns: repeat(3"] {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
+  .screen-head { margin-bottom: 22px; }
+  .screen-head h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.025em; }
+  .screen-head p { color: var(--gray-500); font-size: 14px; margin-top: 4px; }
+
+  /* ─────────────────────────  STAT CARDS  ───────────────────────── */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 26px;
   }
-
-  /* GRANT CARDS GRID — stack to single column */
-  #homeowners > div > div[style*="grid-template-columns: repeat(2"] {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
+  .stat-card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px 20px;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
-
-  /* WHY ITS HARD — 3 col to single col */
-  #homeowners div[style*="grid-template-columns: repeat(3"] {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
+  .stat-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow-sm); }
+  .stat-card.urgent { border-color: #FCA5A5; background: linear-gradient(0deg, var(--red-bg), var(--red-bg)); }
+  .stat-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px; font-weight: 550; color: var(--gray-500); margin-bottom: 12px;
   }
+  .stat-label svg { width: 15px; height: 15px; opacity: 0.7; }
+  .stat-value { font-size: 30px; font-weight: 750; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+  .stat-value.green { color: var(--green); }
+  .stat-value.red { color: var(--red); }
+  .stat-foot { margin-top: 10px; font-size: 12px; color: var(--gray-400); display: flex; align-items: center; gap: 5px; }
+  .delta-up { color: var(--green); font-weight: 600; }
+  .delta-flat { color: var(--gray-400); font-weight: 600; }
+  .urgent-tag { color: var(--red); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
 
-  /* HOMEOWNER PRICING SECTION */
-  #homeowner-pricing { padding: 4rem 1.5rem !important; }
-  #homeowner-pricing h2 { font-size: 1.75rem !important; }
-
-  /* PRICING CARDS — stack vertically, remove scale transform */
-  #homeowner-pricing > div > div[style*="grid-template-columns: 1fr 1fr"] {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    max-width: 100% !important;
+  /* ─────────────────────────  PANEL / FEED  ───────────────────────── */
+  .panel {
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
   }
-
-  /* Remove scale transform on featured card mobile */
-  #homeowner-pricing div[style*="transform: scale(1.03)"] {
-    transform: none !important;
-    margin-top: 0 !important;
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; border-bottom: 1px solid var(--line-2);
   }
+  .panel-head h2 { font-size: 15px; font-weight: 650; letter-spacing: -0.01em; }
+  .panel-head .sub { font-size: 12.5px; color: var(--gray-400); }
+  .ghost-link { font-size: 13px; font-weight: 550; color: var(--indigo); cursor: pointer; }
+  .ghost-link:hover { color: var(--indigo-d); }
 
-  /* REASSURANCE ROW — wrap properly */
-  #homeowner-pricing > div > div[style*="display: flex"] {
-    flex-direction: column !important;
-    gap: 0.75rem !important;
-  }
-
-  /* CHECKOUT SECTION */
-  #checkout { padding: 4rem 1.5rem !important; }
-
-  /* BUSINESS PRICING GRID — stack on mobile */
-  .pricing-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .pricing-card.featured {
-    transform: none !important;
-  }
-
-  /* SECTORS GRID */
-  .sectors-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* CLIENTS GRID */
-  .clients-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* STEPS GRID */
-  .steps-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .steps-grid::before { display: none !important; }
-
-  /* ANGLE SECTION */
-  .angle-inner {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
-  }
-
-  /* GENERAL — prevent any element overflowing */
-  body { overflow-x: hidden !important; }
-  * { box-sizing: border-box !important; }
-
-  /* Fix stat rows in homeowner section from overflowing */
-  #homeowners div[style*="border: 1px solid rgba(255,255,255,0.1)"] {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Fix grant info cards */
-  #homeowners div[style*="border-left: 3px solid var(--gold)"] {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Fix the why its hard section boxes */
-  #homeowners div[style*="background: rgba(255,255,255,0.03)"] {
-    padding: 1.5rem !important;
-  }
-
-  /* Homeowner pricing cards full width on mobile */
-  #homeowner-pricing div[style*="border:"] {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Nav padding */
-  nav { padding: 1rem 1.5rem !important; }
-
-  /* Hero section */
-  .hero { grid-template-columns: 1fr !important; min-height: auto !important; }
-  .hero-left { padding: 6rem 1.5rem 3rem !important; }
-  .hero-right { clip-path: none !important; padding: 3rem 1.5rem !important; }
-
-  /* Sections general */
-  section { padding: 4rem 1.5rem !important; }
-
-  /* Trust bar */
-  .trust-bar { padding: 1rem 1.5rem !important; gap: 1rem !important; flex-direction: column !important; align-items: flex-start !important; }
-
-  /* Footer */
-  footer { padding: 2rem 1.5rem !important; flex-direction: column !important; text-align: center !important; }
-
-  /* CTA section */
-  .cta-section { padding: 4rem 1.5rem !important; }
-
-  /* Checkout grid on business section */
-  #checkout > div > div[style*="grid-template-columns: repeat(3"] {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-  }
-  #checkout div[style*="transform: scale(1.03)"] {
-    transform: none !important;
-  }
-}
-
-
-
-  .checkout-grid {
+  .feed-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-    width: 100%;
-    box-sizing: border-box;
+    grid-template-columns: 38px 1fr auto;
+    align-items: center; gap: 14px;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--line-2);
+    cursor: pointer; position: relative;
+    transition: background 0.1s;
   }
-  @media (max-width: 768px) {
-    .checkout-grid {
-      grid-template-columns: 1fr !important;
-      gap: 2rem !important;
-    }
-    .checkout-grid > div {
-      width: 100% !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-      margin: 0 !important;
-    }
+  .feed-row:last-child { border-bottom: none; }
+  .feed-row:hover { background: var(--canvas); }
+  .feed-row::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: transparent;
+  }
+  .feed-row.high::before { background: var(--red); }
+  .feed-row.warm::before { background: var(--amber); }
+
+  .ch-icon {
+    width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+    display: grid; place-items: center; position: relative;
+  }
+  .ch-icon svg { width: 19px; height: 19px; }
+  .ch-wa { background: #E7F8EF; color: #1FA855; }
+  .ch-ig { background: #FCEEF3; color: #C13584; }
+  .ch-fb { background: #EAF1FD; color: #1877F2; }
+  .ch-ph { background: var(--indigo-50); color: var(--indigo); }
+  .ch-web{ background: #F1F2F6; color: var(--gray-700); }
+  .ch-gg { background: #FEF3E8; color: #EA4335; }
+
+  .feed-main { min-width: 0; }
+  .feed-line1 { display: flex; align-items: center; gap: 9px; margin-bottom: 2px; }
+  .feed-name { font-size: 14px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .feed-time { font-size: 12px; color: var(--gray-400); white-space: nowrap; }
+  .feed-treat { font-size: 13px; color: var(--gray-500); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .feed-right { display: flex; align-items: center; gap: 14px; }
+  .feed-value { font-size: 13.5px; font-weight: 650; color: var(--ink); white-space: nowrap; }
+  .score-pill {
+    font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 7px; white-space: nowrap;
+  }
+  .sc-hi { background: var(--green-bg); color: var(--green); }
+  .sc-md { background: var(--amber-bg); color: var(--amber); }
+  .sc-lo { background: var(--line-2); color: var(--gray-500); }
+
+  .status-badge {
+    font-size: 11.5px; font-weight: 600; padding: 4px 9px; border-radius: 7px; white-space: nowrap;
+  }
+  .st-new   { background: var(--indigo-50); color: var(--indigo-d); }
+  .st-qual  { background: #EEF6FF; color: #2563EB; }
+  .st-booked{ background: var(--green-bg); color: var(--green); }
+  .st-follow{ background: var(--amber-bg); color: var(--amber); }
+  .st-cold  { background: var(--line-2); color: var(--gray-500); }
+  .st-cont  { background: #F5F3FF; color: #7C3AED; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 340px; gap: 18px; align-items: start; }
+
+  /* mini activity / insight card */
+  .insight-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 16px; }
+  .insight-card h3 { font-size: 13px; font-weight: 650; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .insight-card h3 svg { width: 16px; height: 16px; color: var(--indigo); }
+  .mini-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--line-2); font-size: 13px; }
+  .mini-row:last-child { border-bottom: none; }
+  .mini-row .k { color: var(--gray-500); }
+  .mini-row .v { font-weight: 650; color: var(--ink); }
+
+  .action-card { background: var(--indigo-50); border: 1px solid var(--indigo-100); border-radius: var(--radius); padding: 18px 20px; }
+  .action-card h3 { font-size: 13px; font-weight: 650; color: var(--indigo-d); margin-bottom: 6px; }
+  .action-card p { font-size: 13px; color: var(--ink-2); line-height: 1.55; margin-bottom: 14px; }
+
+  /* ─────────────────────────  BUTTONS  ───────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    padding: 9px 16px; border-radius: var(--radius-sm); border: 1px solid transparent;
+    cursor: pointer; transition: background 0.12s, border-color 0.12s, transform 0.06s;
+  }
+  .btn:active { transform: translateY(0.5px); }
+  .btn-primary { background: var(--indigo); color: #fff; }
+  .btn-primary:hover { background: var(--indigo-d); }
+  .btn-ghost { background: var(--bg); border-color: var(--line); color: var(--ink-2); }
+  .btn-ghost:hover { background: var(--line-2); }
+  .btn-sm { padding: 6px 12px; font-size: 12.5px; }
+  .btn svg { width: 15px; height: 15px; }
+  .btn-block { width: 100%; }
+
+  /* ─────────────────────────  REVENUE SCREEN  ───────────────────────── */
+  .rev-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .rev-big {
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; background: var(--panel);
+  }
+  .rev-big.green { background: var(--green-bg); border-color: #A7F3D0; }
+  .rev-big.amber { background: var(--amber-bg); border-color: #FDE68A; }
+  .rev-big .lbl { font-size: 13px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .rev-big.green .lbl { color: #047857; }
+  .rev-big.amber .lbl { color: #B45309; }
+  .rev-big .num { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .rev-big.green .num { color: var(--green); }
+  .rev-big.amber .num { color: var(--amber); }
+  .rev-big .meta { font-size: 12.5px; margin-top: 12px; }
+  .rev-big.green .meta { color: #059669; }
+  .rev-big.amber .meta { color: #D97706; }
+
+  .bars { padding: 6px 4px; }
+  .bar-row { display: grid; grid-template-columns: 88px 1fr 84px; align-items: center; gap: 14px; padding: 11px 0; }
+  .bar-label { font-size: 13px; font-weight: 550; color: var(--ink-2); }
+  .bar-track { height: 12px; background: var(--line-2); border-radius: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--indigo); border-radius: 6px; width: 0; transition: width 0.9s cubic-bezier(0.2,0.8,0.2,1); }
+  .bar-fill.alt { background: var(--indigo-l); }
+  .bar-val { font-size: 13.5px; font-weight: 700; text-align: right; color: var(--ink); }
+
+  table.lead-table { width: 100%; border-collapse: collapse; }
+  .lead-table th {
+    text-align: left; font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
+    color: var(--gray-400); padding: 12px 20px; border-bottom: 1px solid var(--line-2);
+  }
+  .lead-table th.r, .lead-table td.r { text-align: right; }
+  .lead-table td { padding: 14px 20px; border-bottom: 1px solid var(--line-2); font-size: 13.5px; vertical-align: middle; }
+  .lead-table tr:last-child td { border-bottom: none; }
+  .lead-table tr:hover td { background: var(--canvas); }
+  .td-name { display: flex; align-items: center; gap: 11px; }
+
+  /* avatars */
+  .av {
+    border-radius: 50%; flex-shrink: 0; display: grid; place-items: center;
+    font-weight: 600; color: #fff; letter-spacing: -0.01em;
+  }
+  .av-32 { width: 32px; height: 32px; font-size: 12px; }
+  .av-38 { width: 38px; height: 38px; font-size: 13px; }
+  .av-44 { width: 44px; height: 44px; font-size: 15px; }
+  .av-56 { width: 56px; height: 56px; font-size: 19px; }
+
+  /* ─────────────────────────  CHANNELS SCREEN  ───────────────────────── */
+  .chan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .chan-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; transition: border-color 0.15s, box-shadow 0.15s; }
+  .chan-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow-sm); }
+  .chan-top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .chan-name { font-size: 14.5px; font-weight: 650; }
+  .chan-sub { font-size: 12px; color: var(--gray-400); }
+  .chan-vol { font-size: 30px; font-weight: 750; letter-spacing: -0.03em; line-height: 1; }
+  .chan-vol-lbl { font-size: 12px; color: var(--gray-400); margin-top: 4px; }
+  .chan-stats { display: flex; gap: 22px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-2); }
+  .chan-stat .v { font-size: 16px; font-weight: 700; }
+  .chan-stat .k { font-size: 11.5px; color: var(--gray-400); margin-top: 2px; }
+
+  /* ─────────────────────────  KANBAN  ───────────────────────── */
+  .kanban { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; align-items: start; }
+  .kcol { background: var(--canvas); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; min-height: 200px; }
+  .kcol.cold { background: var(--amber-bg); border-color: #FDE68A; }
+  .kcol-head { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px 12px; }
+  .kcol-head .t { font-size: 13px; font-weight: 650; }
+  .kcol.cold .kcol-head .t { color: #B45309; }
+  .kcol-count { font-size: 12px; font-weight: 650; color: var(--gray-400); background: var(--bg); border: 1px solid var(--line); border-radius: 7px; min-width: 22px; height: 22px; display: grid; place-items: center; padding: 0 6px; }
+  .kcard {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px;
+    margin-bottom: 10px; cursor: grab; transition: box-shadow 0.12s, border-color 0.12s, transform 0.06s;
+  }
+  .kcard:hover { box-shadow: var(--shadow); border-color: var(--gray-300); }
+  .kcard:active { cursor: grabbing; }
+  .kcard.dragging { opacity: 0.4; }
+  .kcol.dragover { border-color: var(--indigo); background: var(--indigo-50); }
+  .kcard-top { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+  .kcard-name { font-size: 13.5px; font-weight: 600; }
+  .kcard-treat { font-size: 12.5px; color: var(--gray-500); margin-bottom: 8px; }
+  .kcard-foot { display: flex; align-items: center; justify-content: space-between; }
+  .kcard-val { font-size: 13px; font-weight: 700; }
+  .kcard-days { font-size: 11.5px; color: var(--gray-400); display: inline-flex; align-items: center; gap: 4px; }
+  .kcard-days.warn { color: var(--amber); font-weight: 600; }
+
+  /* ─────────────────────────  LEAD DETAIL  ───────────────────────── */
+  .ld-back { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 550; color: var(--gray-500); cursor: pointer; margin-bottom: 18px; }
+  .ld-back:hover { color: var(--ink); }
+  .ld-back svg { width: 16px; height: 16px; }
+  .ld-grid { display: grid; grid-template-columns: 1fr 360px; gap: 20px; align-items: start; }
+
+  .ld-profile { display: flex; align-items: center; gap: 16px; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); margin-bottom: 18px; }
+  .ld-profile .info { flex: 1; min-width: 0; }
+  .ld-profile .nm { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
+  .ld-profile .meta { font-size: 13px; color: var(--gray-500); margin-top: 3px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .ld-chs { display: flex; gap: 6px; margin-top: 10px; }
+  .ld-ch-dot { width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center; }
+  .ld-ch-dot svg { width: 14px; height: 14px; }
+
+  .thread-head { font-size: 13px; font-weight: 650; color: var(--gray-500); margin: 0 0 14px; display: flex; align-items: center; gap: 8px; }
+  .thread { padding: 4px 0; }
+  .msg-block { display: flex; gap: 12px; margin-bottom: 18px; }
+  .msg-ch { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; }
+  .msg-ch svg { width: 15px; height: 15px; }
+  .msg-body { flex: 1; min-width: 0; }
+  .msg-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  .msg-ch-name { font-size: 12px; font-weight: 600; color: var(--ink-2); }
+  .msg-dir { font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 5px; }
+  .dir-in { background: var(--line-2); color: var(--gray-500); }
+  .dir-out { background: var(--indigo-50); color: var(--indigo-d); }
+  .msg-t { font-size: 11.5px; color: var(--gray-400); }
+  .bubble { background: var(--canvas); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+  .bubble.out { background: var(--indigo-50); border-color: var(--indigo-100); }
+
+  .score-box { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; background: var(--panel); margin-bottom: 18px; }
+  .score-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+  .score-head .lab { font-size: 13px; font-weight: 650; color: var(--gray-500); }
+  .score-head .big { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+  .score-head .big span { font-size: 16px; font-weight: 600; color: var(--gray-400); }
+  .sb-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; font-size: 13px; border-bottom: 1px solid var(--line-2); }
+  .sb-row:last-child { border-bottom: none; }
+  .sb-row .pts { font-weight: 700; color: var(--green); }
+  .sb-track { height: 8px; background: var(--line-2); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+  .sb-fill { height: 100%; background: var(--indigo); border-radius: 4px; }
+
+  .qa-box { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); overflow: hidden; margin-bottom: 18px; }
+  .qa-item { padding: 14px 18px; border-bottom: 1px solid var(--line-2); }
+  .qa-item:last-child { border-bottom: none; }
+  .qa-q { font-size: 12px; font-weight: 600; color: var(--gray-400); margin-bottom: 4px; }
+  .qa-a { font-size: 13.5px; font-weight: 550; color: var(--ink); }
+
+  .tl-box { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); padding: 18px 20px; }
+  .tl-item { display: flex; gap: 14px; padding-bottom: 16px; position: relative; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: 5px; top: 14px; bottom: -2px; width: 1.5px; background: var(--line); }
+  .tl-item:last-child::before { display: none; }
+  .tl-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--indigo); flex-shrink: 0; margin-top: 3px; z-index: 1; border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--indigo); }
+  .tl-dot.muted { background: var(--gray-300); box-shadow: 0 0 0 1px var(--gray-300); }
+  .tl-body .ev { font-size: 13px; font-weight: 550; color: var(--ink); }
+  .tl-body .tm { font-size: 11.5px; color: var(--gray-400); margin-top: 1px; }
+
+  .sec-label { font-size: 12px; font-weight: 650; color: var(--gray-400); letter-spacing: 0.02em; text-transform: uppercase; margin: 0 0 12px; }
+
+  /* ─────────────────────────  LOGIN  ───────────────────────── */
+  #login { display: flex; min-height: 100vh; }
+  #login.hide { display: none; }
+  .login-form-side { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; background: var(--bg); }
+  .login-card { width: 100%; max-width: 360px; }
+  .login-brand { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 30px; }
+  .login-brand .brand-mark { width: 34px; height: 34px; }
+  .login-brand .brand-mark svg { width: 19px; height: 19px; }
+  .login-brand .brand-name { font-size: 20px; }
+  .login-h { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .login-tag { text-align: center; color: var(--gray-500); font-size: 14px; margin-bottom: 30px; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 12.5px; font-weight: 600; color: var(--ink-2); margin-bottom: 6px; }
+  .field input {
+    width: 100%; font-family: inherit; font-size: 14px;
+    padding: 11px 13px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+    background: var(--bg); color: var(--ink); transition: border-color 0.12s, box-shadow 0.12s;
+  }
+  .field input:focus { outline: none; border-color: var(--indigo); box-shadow: 0 0 0 3px var(--indigo-50); }
+  .field input::placeholder { color: var(--gray-400); }
+  .login-row { display: flex; align-items: center; justify-content: space-between; margin: 6px 0 20px; }
+  .login-row label { font-size: 13px; color: var(--gray-500); display: flex; align-items: center; gap: 7px; cursor: pointer; }
+  .login-row a { font-size: 13px; color: var(--indigo); font-weight: 550; text-decoration: none; }
+  .login-foot { text-align: center; font-size: 12.5px; color: var(--gray-400); margin-top: 22px; }
+  .login-visual-side {
+    flex: 1; background: var(--indigo-50); position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; padding: 48px;
+  }
+  .login-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .login-photo-overlay { position: absolute; inset: 0; background: rgba(49,46,129,0.55); }
+  .login-visual-fallback {
+    position: absolute; inset: 0; background: var(--indigo-50);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lv-content { position: relative; z-index: 2; max-width: 380px; color: #fff; }
+  .lv-content.dark { color: var(--ink); }
+  .lv-quote { font-size: 22px; font-weight: 650; line-height: 1.4; letter-spacing: -0.01em; margin-bottom: 18px; }
+  .lv-meta { font-size: 13.5px; opacity: 0.9; }
+  /* product mock for fallback panel */
+  .lv-mock { background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 16px; width: 320px; }
+  .lv-mock-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line-2); }
+  .lv-mock-row:last-child { border-bottom: none; }
+  .lv-mock-ic { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; }
+  .lv-mock-ic svg { width: 15px; height: 15px; }
+  .lv-mock-tx { flex: 1; }
+  .lv-mock-tx .a { font-size: 12.5px; font-weight: 600; }
+  .lv-mock-tx .b { font-size: 11px; color: var(--gray-400); }
+  .lv-mock-v { font-size: 12px; font-weight: 700; }
+
+  /* ─────────────────────────  MOBILE NAV  ───────────────────────── */
+  .mobile-tabbar { display: none; }
+  .mobile-top { display: none; }
+
+  /* ─────────────────────────  RESPONSIVE  ───────────────────────── */
+  @media (max-width: 1100px) {
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .ld-grid { grid-template-columns: 1fr; }
+    .chan-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  .hw-stat-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 4rem;
-  }
-  .hw-stat-card {
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
-  .hw-stat-num {
-    font-family: var(--serif);
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 600;
-    color: var(--gold-light);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    word-break: normal;
-  }
-  .hw-stat-label {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 0.3rem;
-    line-height: 1.4;
-  }
-  .hw-stat-note {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.4;
-  }
-  .hw-grant-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  .hw-why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  @media (max-width: 860px) {
+    .sidebar { display: none; }
+    .topbar { display: none; }
+    .mobile-top {
+      display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 18px;
+      border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 30;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(10px);
+    }
+    .mobile-top .brand-mark { width: 26px; height: 26px; }
+    .mobile-top .brand-mark svg { width: 15px; height: 15px; }
+    .mobile-top .m-title { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+    .mobile-top .m-live { margin-left: auto; }
+    .screen { padding: 18px 16px 90px; }
+    .screen-head h1 { font-size: 21px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 11px; }
+    .stat-value { font-size: 25px; }
+    .rev-hero { grid-template-columns: 1fr; }
+    .rev-big .num { font-size: 32px; }
+    .chan-grid { grid-template-columns: 1fr; }
+    .kanban { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 80%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+    .kcol { scroll-snap-align: start; }
+    .feed-row { grid-template-columns: 36px 1fr; gap: 11px; }
+    .feed-right { display: none; }
+    .feed-row .mobile-meta { display: flex; }
+    table.lead-table { font-size: 12.5px; }
+    .lead-table th:nth-child(4), .lead-table td:nth-child(4) { display: none; }
+    .login-visual-side { display: none; }
+    #login { display: block; }
+    .login-form-side { min-height: 100vh; }
+
+    .mobile-tabbar {
+      display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+    }
+    .tab {
+      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+      padding: 4px; color: var(--gray-400); cursor: pointer;
+    }
+    .tab svg { width: 21px; height: 21px; }
+    .tab span { font-size: 10.5px; font-weight: 550; }
+    .tab.active { color: var(--indigo); }
   }
 
-  @media (max-width: 768px) {
-  
-  .checkout-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  @media (max-width: 768px) {
-    .checkout-grid {
-      grid-template-columns: 1fr !important;
-      gap: 2rem !important;
-    }
-    .checkout-grid > div {
-      width: 100% !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-      margin: 0 !important;
-    }
-  }
-
-  .hw-stat-strip {
-      grid-template-columns: 1fr !important;
-      gap: 1rem !important;
-      margin-bottom: 2.5rem !important;
-    }
-    .hw-stat-card {
-      padding: 1.25rem !important;
-      width: 100% !important;
-    }
-    .hw-stat-num {
-      font-size: 2.2rem !important;
-    }
-    .hw-grant-grid {
-      grid-template-columns: 1fr !important;
-      gap: 1rem !important;
-    }
-    .hw-why-grid {
-      grid-template-columns: 1fr !important;
-      gap: 1rem !important;
-    }
-  }
-
+  .mobile-meta { display: none; align-items: center; gap: 8px; margin-top: 5px; }
 </style>
 </head>
-<body style="overflow-x:hidden;max-width:100vw;">
+<body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Apex <span>Funding</span> Partners</a>
-  <div style="display:flex;align-items:center;gap:1rem;"><a href="#homeowners" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Homeowners</a><a href="#checkout" style="font-size:0.82rem;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:0.02em;">Pricing</a><a href="https://calendly.com/zacharia-consulting/30min" class="nav-cta">Book free call</a></div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">UK Grant Consultancy — For Businesses & Homeowners</div>
-    <h1 class="hero-headline">
-      We win you grants.<br>
-      You pay us <em>only</em><br>
-      when we do.
-    </h1>
-    <p class="hero-sub">
-      Whether you run a business or own a home — there is government money available to you right now that you are almost certainly not claiming. <strong>We find it, apply for it, and do all the work.</strong> You pay when it lands.
-    </p>
-    <p style="font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:0.75rem;">I am a...</p>
-    <div class="hero-actions" style="flex-direction:column;align-items:flex-start;gap:0.75rem;">
-      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-        <a href="#" onclick="document.getElementById('checkout').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary" style="background:var(--ink);">Business owner</a>
-        <a href="#" onclick="document.getElementById('homeowners').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary" style="background:var(--gold);color:var(--ink);">Homeowner</a>
+<!-- ════════════════════════  LOGIN  ════════════════════════ -->
+<div id="login">
+  <div class="login-form-side">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 4 6.5 4 11c0 3.2 2 5.8 4.5 7.2.5.3.8.1.8-.4v-2c0-.4-.2-.6-.5-.8C7 14 6 12.6 6 11c0-3.3 2.4-6 6-6s6 2.7 6 6c0 3.6-2.7 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="11" r="2.2" fill="#fff"/></svg>
+        </div>
+        <span class="brand-name">Cura</span>
       </div>
-      <p class="hero-note">Both options include a free eligibility check — no commitment</p>
+      <div class="login-h">Welcome back</div>
+      <div class="login-tag">Every patient enquiry. One place.</div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" value="rachel@harleystreetsmile.co.uk" placeholder="you@clinic.co.uk" id="loginEmail">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" value="••••••••••" placeholder="Enter your password">
+      </div>
+      <div class="login-row">
+        <label><input type="checkbox" checked style="accent-color: var(--indigo); width:15px; height:15px;"> Keep me signed in</label>
+        <a href="#" onclick="return false">Forgot password?</a>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="signIn()" style="padding:12px;">Sign in</button>
+      <div class="login-foot">Protected clinic data · GDPR compliant · ISO 27001</div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-stat-card">
-      <div class="stat-row">
-        <div class="stat-num">£2B+</div>
-        <div class="stat-label">UK grant funding available right now</div>
-        <div class="stat-note">Innovate UK alone — source: UKRI 2025. Most businesses never touch it.</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-num">£47K</div>
-        <div class="stat-label">Average R&D tax credit claim for UK tech companies</div>
-        <div class="stat-note">Paid directly by HMRC — most qualify and have never claimed</div>
-      </div>
-      <div class="stat-row">
-        <div class="stat-num">72hrs</div>
-        <div class="stat-label">Average time to your first eligibility report</div>
-        <div class="stat-note">We identify what you qualify for within 3 days of onboarding</div>
+  <div class="login-visual-side">
+    <!-- Unsplash photo attempt; onerror falls back to a designed product-mock panel -->
+    <img class="login-photo"
+         src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
+         alt="Dental clinic"
+         onerror="this.style.display='none'; document.getElementById('loginFallback').style.display='flex'; document.getElementById('loginQuote').classList.remove('dark');">
+    <div class="login-photo-overlay" id="loginOverlay"></div>
+    <div class="login-visual-fallback" id="loginFallback" style="display:none;">
+      <div class="lv-mock">
+        <div style="font-size:11px;font-weight:650;color:var(--gray-400);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px;">Live enquiries · today</div>
+        <div class="lv-mock-row"><div class="lv-mock-ic ch-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.2-.7-2.7-1.1-4.4-3.8-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.6-.1l1.8.9c.2.1.4.2.5.3 0 .2 0 .8-.3 1.1z"/></svg></div><div class="lv-mock-tx"><div class="a">Sarah Whitfield</div><div class="b">Invisalign · WhatsApp</div></div><div class="lv-mock-v" style="color:var(--green)">£4,500</div></div>
+        <div class="lv-mock-row"><div class="lv-mock-ic ch-ph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.6 15.6 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1z"/></svg></div><div class="lv-mock-tx"><div class="a">James Okafor</div><div class="b">Full arch · Missed call</div></div><div class="lv-mock-v" style="color:var(--red)">£24,000</div></div>
+        <div class="lv-mock-row"><div class="lv-mock-ic ch-ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.5.2 1 .5 1.4.9.4.4.7.9.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.5-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.8 3.8 0 01-1.4-.9 3.8 3.8 0 01-.9-1.4c-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.5.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.1 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.4 7.8a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg></div><div class="lv-mock-tx"><div class="a">Priya Sharma</div><div class="b">Veneers · Instagram</div></div><div class="lv-mock-v" style="color:var(--green)">£4,800</div></div>
       </div>
     </div>
+    <div class="lv-content dark" id="loginQuote" style="z-index:2; align-self:flex-end; position:absolute; bottom:48px; left:48px; right:48px; max-width:420px;">
+      <div class="lv-quote">"We were losing six or seven enquiries a week without knowing. Now nothing slips through."</div>
+      <div class="lv-meta">Rachel Adeyemi · Practice Manager, Harley Street Smile Clinic</div>
+    </div>
   </div>
-</section>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item"><span class="check">✓</span> AI-accelerated applications — faster than traditional agencies</div>
-  <div class="trust-item"><span class="check">✓</span> Specialist Grant Consultancy — IFRS Certified Accountants</div>
-  <div class="trust-item"><span class="check">✓</span> Fully remote — serving all UK businesses</div>
-  <div class="trust-item"><span class="check">✓</span> No win, minimal fee</div>
-  <div class="trust-item"><span class="check">✓</span> Businesses &amp; homeowners — both qualify for funding</div>
 </div>
 
-<!-- THE ANGLE -->
-<section class="angle-section">
-  <div class="angle-inner">
-    <div>
-      <div class="angle-label">Why Apex is different</div>
-      <h2 class="angle-heading">Other consultants charge you<br><em>regardless of outcome.</em><br>We don't.</h2>
-      <p class="angle-body">
-        The traditional grant writing industry charges <strong>£1,500–£5,000 per application</strong> upfront — win or lose. That's a significant risk for any business to absorb, especially before seeing a single result.
-        <br><br>
-        At Apex, our incentives are aligned with yours. We keep our retainer low, charge a success fee only on awarded grants, and use AI-powered tools to deliver applications faster and at a fraction of the cost of traditional agencies. <strong>You get the expertise. You keep the risk low. We only win when you win.</strong>
-      </p>
-    </div>
-    <div>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>What you want</th>
-            <th>Traditional agencies</th>
-            <th>Apex</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Low upfront cost</td>
-            <td><span class="tag-them">£1,500–5,000/app</span></td>
-            <td><span class="tag-apex">£99–149/mo</span></td>
-          </tr>
-          <tr>
-            <td>Risk tied to results</td>
-            <td><span class="tag-them">Paid win or lose</span></td>
-            <td><span class="tag-apex">Success fee only</span></td>
-          </tr>
-          <tr>
-            <td>Fast turnaround</td>
-            <td><span class="tag-them">2–4 weeks</span></td>
-            <td><span class="tag-apex">Days, not weeks</span></td>
-          </tr>
-          <tr>
-            <td>Ongoing monitoring</td>
-            <td><span class="tag-them">Project-by-project</span></td>
-            <td><span class="tag-apex">Included monthly</span></td>
-          </tr>
-          <tr>
-            <td>Transparent process</td>
-            <td><span class="tag-them">Black box</span></td>
-            <td><span class="tag-apex">Full visibility</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+<!-- ════════════════════════  APP  ════════════════════════ -->
+<div class="app" id="app">
 
-<!-- WHO WE HELP -->
-<section class="clients-section">
-  <div class="section-inner">
-    <div class="section-label">Who we work with</div>
-    <h2 class="section-heading">Three types of businesses<br>we specialise in</h2>
-    <p class="section-sub">We're selective about who we work with — so we can go deep on the grants that matter most to each sector.</p>
-    <div class="clients-grid">
-      <div class="client-card">
-        <div class="client-icon">💻</div>
-        <div class="client-type">Tech & Software SMEs</div>
-        <p class="client-desc">Post-revenue software or SaaS businesses with 5–50 employees. If your team is building, iterating, or solving technical problems — you almost certainly qualify for R&D tax relief and Innovate UK funding you haven't claimed.</p>
-        <div class="client-grants">
-          <span class="grant-pill">Innovate UK Smart Grants — up to £2M</span>
-          <span class="grant-pill">R&D Tax Credits — avg. £47,000 claim</span>
-          <span class="grant-pill">ERIS Intensive Support Scheme</span>
-        </div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 4 6.5 4 11c0 3.2 2 5.8 4.5 7.2.5.3.8.1.8-.4v-2c0-.4-.2-.6-.5-.8C7 14 6 12.6 6 11c0-3.3 2.4-6 6-6s6 2.7 6 6c0 3.6-2.7 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="11" r="2.2" fill="#fff"/></svg>
       </div>
-      <div class="client-card">
-        <div class="client-icon">🏗️</div>
-        <div class="client-type">Construction & Built Environment</div>
-        <p class="client-desc">Firms working on sustainability, energy efficiency, new materials, or innovative building methods. The government's net-zero agenda means more grant money is flowing into construction right now than ever before.</p>
-        <div class="client-grants">
-          <span class="grant-pill">Green Heat Network Fund</span>
-          <span class="grant-pill">Innovate UK BridgeAI — up to £500K</span>
-          <span class="grant-pill">UKSPF Local Growth Grants</span>
-        </div>
-      </div>
-      <div class="client-card">
-        <div class="client-icon">🚀</div>
-        <div class="client-type">Sole Traders Incorporating</div>
-        <p class="client-desc">About to move from sole trader to limited company? That's the moment everything opens up. Dozens of grants you currently can't access become available the moment you incorporate — and we make sure you don't miss the window.</p>
-        <div class="client-grants">
-          <span class="grant-pill">Innovate UK Feasibility — up to £25K</span>
-          <span class="grant-pill">Local Growth Hub Grants</span>
-          <span class="grant-pill">R&D Tax Credits from day one</span>
+      <span class="brand-name">Cura</span>
+    </div>
+
+    <div class="nav-section-label">Overview</div>
+    <div class="nav-item active" data-screen="dashboard" onclick="go('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-item" data-screen="revenue" onclick="go('revenue')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      Revenue
+    </div>
+    <div class="nav-item" data-screen="channels" onclick="go('channels')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+      Channels
+    </div>
+    <div class="nav-item" data-screen="followups" onclick="go('followups')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+      Follow-ups
+      <span class="nav-badge">4</span>
+    </div>
+
+    <div class="nav-section-label" style="margin-top:14px;">Workspace</div>
+    <div class="nav-item" onclick="go('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 010 11.4l-3.2 3.2a1 1 0 01-1.4 0l-1.4-1.4M9.3 17.7a4 4 0 010-11.4"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Integrations
+    </div>
+    <div class="nav-item" onclick="go('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.6 1.6 0 00-1.8-.3 1.6 1.6 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.6 1.6 0 00-1-1.5 1.6 1.6 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.6 1.6 0 00.3-1.8 1.6 1.6 0 00-1.5-1H3a2 2 0 110-4h.1a1.6 1.6 0 001.5-1 1.6 1.6 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.6 1.6 0 001.8.3H9a1.6 1.6 0 001-1.5V3a2 2 0 114 0v.1a1.6 1.6 0 001 1.5 1.6 1.6 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.6 1.6 0 00-.3 1.8V9a1.6 1.6 0 001.5 1H21a2 2 0 110 4h-.1a1.6 1.6 0 00-1.5 1z"/></svg>
+      Settings
+    </div>
+
+    <div class="sidebar-foot">
+      <div class="clinic-chip">
+        <div class="clinic-logo">HS</div>
+        <div class="clinic-meta">
+          <div class="nm">Harley Street Smile</div>
+          <div class="sub">Growth plan</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </aside>
 
-<!-- HOW IT WORKS -->
-<section class="how-section">
-  <div class="section-inner">
-    <div class="section-label">The process</div>
-    <h2 class="section-heading">Four steps from call<br>to <em>funded</em></h2>
-    <div class="steps-grid">
-      <div class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-title">Free eligibility check</div>
-        <p class="step-desc">A 20-minute call. We assess what you're building, your sector, and your financials — and identify every grant you qualify for right now.</p>
+  <!-- MAIN -->
+  <div class="main">
+    <!-- desktop topbar -->
+    <header class="topbar">
+      <div class="page-title" id="pageTitle">Dashboard</div>
+      <div class="topbar-spacer"></div>
+      <div class="search-mini">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search enquiries…
       </div>
-      <div class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-title">We write it</div>
-        <p class="step-desc">Our AI-powered process produces a tailored application against the specific grant criteria. You review, we refine. Turnaround in days.</p>
+      <div class="live-pill"><span class="live-dot"></span> Live</div>
+      <div class="icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
       </div>
-      <div class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-title">We submit it</div>
-        <p class="step-desc">We handle the full submission. You stay on our radar for every new grant window that opens in your sector — nothing gets missed.</p>
+      <div class="avatar-me">RA</div>
+    </header>
+
+    <!-- mobile top -->
+    <div class="mobile-top">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 4 6.5 4 11c0 3.2 2 5.8 4.5 7.2.5.3.8.1.8-.4v-2c0-.4-.2-.6-.5-.8C7 14 6 12.6 6 11c0-3.3 2.4-6 6-6s6 2.7 6 6c0 3.6-2.7 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="11" r="2.2" fill="#fff"/></svg>
       </div>
-      <div class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-title">You get funded</div>
-        <p class="step-desc">When the grant is awarded, our success fee kicks in. That's when we earn properly. Until then, your outlay is minimal.</p>
-      </div>
+      <div class="m-title" id="mPageTitle">Dashboard</div>
+      <div class="live-pill m-live"><span class="live-dot"></span> Live</div>
     </div>
-  </div>
-</section>
 
-<!-- PRICING -->
-<section class="pricing-section">
-  <div class="section-inner">
-    <div class="section-label">Pricing</div>
-    <h2 class="section-heading">Straightforward.<br>Tied to your results.</h2>
-    <p class="section-sub">No surprises. No large upfront fees. Choose the level of support that fits where you are right now.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-tier">Starter</div>
-        <div class="pricing-name">Radar</div>
-        <div class="pricing-price">£149<span>/mo</span></div>
-        <div class="pricing-success">+ 7% success fee on awarded grants</div>
-        <ul class="pricing-features">
-          <li>Monthly grant eligibility scan</li>
-          <li>Curated report of live opportunities</li>
-          <li>Sector-specific monitoring</li>
-          <li>You write and submit applications</li>
-          <li>Email support</li>
-        </ul>
-        <div class="pricing-btn-group">
-          <a href="https://buy.stripe.com/14AdR9gBt7eo44z3Qh0Jq02" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £149/mo</a>
-          <a href="https://calendly.com/zacharia-consulting/30min" class="pricing-cta light">Book a call first</a>
-        </div>
-      </div>
-      <div class="pricing-card featured">
-        <div class="pricing-badge">Most popular</div>
-        <div class="pricing-tier">Growth</div>
-        <div class="pricing-name">Done-for-you</div>
-        <div class="pricing-price">£499<span>/mo</span></div>
-        <div class="pricing-success">+ 7% success fee on awarded grants</div>
-        <ul class="pricing-features">
-          <li>Everything in Radar</li>
-          <li>1 full application written & submitted per month</li>
-          <li>AI-powered drafting, expert review</li>
-          <li>One revision round included</li>
-          <li>Monthly strategy call</li>
-          <li>Priority turnaround</li>
-        </ul>
-        <div class="pricing-btn-group">
-          <a href="https://buy.stripe.com/14A7sL1Gz6ak0SnbiJ0Jq03" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £499/mo</a>
-          <a href="https://calendly.com/zacharia-consulting/30min" class="pricing-cta light" style="color:#fff;border-color:rgba(255,255,255,0.3)">Book free call first</a>
-        </div>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-tier">Full Service</div>
-        <div class="pricing-name">Unlimited</div>
-        <div class="pricing-price">£999<span>/mo</span></div>
-        <div class="pricing-success">+ 5% success fee on awarded grants</div>
-        <ul class="pricing-features">
-          <li>Everything in Done-for-you</li>
-          <li>Up to 3 applications per month</li>
-          <li>Compliance & reporting support</li>
-          <li>Quarterly funding strategy review</li>
-          <li>Dedicated account management</li>
-          <li>First in line for new schemes</li>
-        </ul>
-        <div class="pricing-btn-group">
-          <a href="https://buy.stripe.com/bJe9AT70TdCMfNh86x0Jq04" class="pricing-cta dark" style="margin-bottom:0.5rem">Start now — £999/mo</a>
-          <a href="https://calendly.com/zacharia-consulting/30min" class="pricing-cta light">Book a call first</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="scroll">
 
-<!-- SECTORS BREAKDOWN -->
-<section class="sectors-section">
-  <div class="section-inner">
-    <div class="section-label">What we find you</div>
-    <h2 class="section-heading">The grants we go after<br><em>on your behalf</em></h2>
-    <p class="section-sub">We monitor 35+ funding sources every week, so you never miss an open window.</p>
-    <div class="sectors-grid">
-      <div class="sector-card">
-        <div class="sector-num">01</div>
-        <div>
-          <div class="sector-name">Innovate UK</div>
-          <p class="sector-desc">The UK's primary innovation funder. Grants from £25K feasibility studies up to £2M for R&D projects. Highly competitive but the largest non-dilutive funding source available to UK SMEs. We know what assessors look for.</p>
-          <div class="sector-tags">
-            <span class="sector-tag">Tech</span>
-            <span class="sector-tag">Manufacturing</span>
-            <span class="sector-tag">Construction</span>
-            <span class="sector-tag">AI & Software</span>
+      <!-- ─────────────  DASHBOARD  ───────────── -->
+      <section class="screen active" id="dashboard">
+        <div class="screen-head">
+          <h1>Good morning, Rachel</h1>
+          <p>Here's what's come in across every channel today.</p>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Total enquiries today</div>
+            <div class="stat-value tnum">23</div>
+            <div class="stat-foot"><span class="delta-up">↑ 18%</span> vs. yesterday</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15.6 15.6 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1z"/></svg> Missed calls recovered</div>
+            <div class="stat-value tnum">7</div>
+            <div class="stat-foot"><span class="delta-up">100%</span> answered within 30s</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Consultations booked</div>
+            <div class="stat-value tnum">11</div>
+            <div class="stat-foot"><span class="delta-up">↑ 4</span> from this morning</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Pipeline value this week</div>
+            <div class="stat-value tnum">£68,500</div>
+            <div class="stat-foot"><span class="delta-up">↑ £12,400</span> week on week</div>
+          </div>
+          <div class="stat-card urgent">
+            <div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9l-8 14A1.9 1.9 0 004 21h16a1.9 1.9 0 001.7-3.1l-8-14a1.9 1.9 0 00-3.4 0z"/></svg> High-value leads waiting</div>
+            <div class="stat-value red tnum">4</div>
+            <div class="stat-foot"><span class="urgent-tag">● Needs action now</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Average response time</div>
+            <div class="stat-value tnum">8s</div>
+            <div class="stat-foot"><span class="delta-up">●</span> 24/7 across all channels</div>
           </div>
         </div>
-      </div>
-      <div class="sector-card">
-        <div class="sector-num">02</div>
-        <div>
-          <div class="sector-name">R&D Tax Credits</div>
-          <p class="sector-desc">Often more valuable than a grant. Average claim for tech companies is £47,000. If your team is solving technical problems, you're probably eligible and not claiming. We build the technical narrative and financial case.</p>
-          <div class="sector-tags">
-            <span class="sector-tag">Software</span>
-            <span class="sector-tag">Engineering</span>
-            <span class="sector-tag">Product Development</span>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Live enquiry feed</h2>
+                <div class="sub">Every channel, in real time</div>
+              </div>
+              <div class="ghost-link" onclick="go('channels')">View channels →</div>
+            </div>
+            <div id="feedList"></div>
+          </div>
+
+          <div>
+            <div class="action-card">
+              <h3>⚡ Recommended next action</h3>
+              <p>4 high-value leads have been waiting over 10 minutes. James Okafor (£24,000 full arch) is your top priority.</p>
+              <button class="btn btn-primary btn-block btn-sm" onclick="openLead('james')">Open James Okafor</button>
+            </div>
+            <div class="insight-card" style="margin-top:16px;">
+              <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> Today at a glance</h3>
+              <div class="mini-row"><span class="k">New enquiries</span><span class="v tnum">23</span></div>
+              <div class="mini-row"><span class="k">Qualified by AI</span><span class="v tnum">16</span></div>
+              <div class="mini-row"><span class="k">Booked consultations</span><span class="v tnum">11</span></div>
+              <div class="mini-row"><span class="k">Awaiting your call</span><span class="v tnum" style="color:var(--red)">4</span></div>
+              <div class="mini-row"><span class="k">After-hours captured</span><span class="v tnum">5</span></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="sector-card">
-        <div class="sector-num">03</div>
-        <div>
-          <div class="sector-name">UK Shared Prosperity Fund</div>
-          <p class="sector-desc">Administered locally through Growth Hubs and councils. Less competitive than national schemes, faster decisions (2–6 weeks), and often overlooked. We track every regional allocation relevant to your location.</p>
-          <div class="sector-tags">
-            <span class="sector-tag">All sectors</span>
-            <span class="sector-tag">Regional</span>
-            <span class="sector-tag">New businesses</span>
+      </section>
+
+      <!-- ─────────────  REVENUE  ───────────── -->
+      <section class="screen" id="revenue">
+        <div class="screen-head">
+          <h1>Money you would have missed</h1>
+          <p>Revenue recovered and revenue still at risk this month.</p>
+        </div>
+
+        <div class="rev-hero">
+          <div class="rev-big green">
+            <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg> Recovered this month</div>
+            <div class="num tnum">£24,800</div>
+            <div class="meta">From 18 enquiries that would have gone unanswered</div>
+          </div>
+          <div class="rev-big amber">
+            <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg> At risk of going cold</div>
+            <div class="num tnum">£31,200</div>
+            <div class="meta">9 high-value leads with no contact in 48h+</div>
           </div>
         </div>
-      </div>
-      <div class="sector-card">
-        <div class="sector-num">04</div>
-        <div>
-          <div class="sector-name">Sustainability & Net-Zero</div>
-          <p class="sector-desc">Government net-zero targets mean unprecedented grant funding for energy efficiency, green construction, and clean technology. This is where construction firms are most consistently winning right now.</p>
-          <div class="sector-tags">
-            <span class="sector-tag">Construction</span>
-            <span class="sector-tag">Energy</span>
-            <span class="sector-tag">Manufacturing</span>
-            <span class="sector-tag">Transport</span>
+
+        <div class="panel" style="margin-bottom:18px;">
+          <div class="panel-head"><h2>Pipeline by treatment type</h2><div class="sub">Open opportunities · this week</div></div>
+          <div class="bars" style="padding:14px 20px;">
+            <div class="bar-row"><div class="bar-label">Implants</div><div class="bar-track"><div class="bar-fill" data-w="100"></div></div><div class="bar-val tnum">£22,600</div></div>
+            <div class="bar-row"><div class="bar-label">Invisalign</div><div class="bar-track"><div class="bar-fill" data-w="81"></div></div><div class="bar-val tnum">£18,400</div></div>
+            <div class="bar-row"><div class="bar-label">Aesthetics</div><div class="bar-track"><div class="bar-fill alt" data-w="64"></div></div><div class="bar-val tnum">£14,500</div></div>
+            <div class="bar-row"><div class="bar-label">Veneers</div><div class="bar-track"><div class="bar-fill alt" data-w="43"></div></div><div class="bar-val tnum">£9,800</div></div>
+            <div class="bar-row"><div class="bar-label">Whitening</div><div class="bar-track"><div class="bar-fill alt" data-w="14"></div></div><div class="bar-val tnum">£3,200</div></div>
           </div>
         </div>
-      </div>
+
+        <div class="panel">
+          <div class="panel-head"><h2>Top 5 highest-value leads this week</h2><div class="sub">Chase these first</div></div>
+          <table class="lead-table">
+            <thead><tr><th>Patient</th><th>Treatment</th><th class="r">Value</th><th>Last contact</th><th class="r">Action</th></tr></thead>
+            <tbody id="topLeadsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ─────────────  CHANNELS  ───────────── -->
+      <section class="screen" id="channels">
+        <div class="screen-head">
+          <h1>Channels</h1>
+          <p>Where your enquiries come from, and how each one performs.</p>
+        </div>
+        <div class="chan-grid" id="chanGrid"></div>
+      </section>
+
+      <!-- ─────────────  FOLLOW-UPS  ───────────── -->
+      <section class="screen" id="followups">
+        <div class="screen-head">
+          <h1>Follow-up manager</h1>
+          <p>Drag a lead between stages, or tap to open. Cold leads need a personal call.</p>
+        </div>
+        <div class="kanban" id="kanban"></div>
+      </section>
+
+      <!-- ─────────────  LEAD DETAIL  ───────────── -->
+      <section class="screen" id="leaddetail">
+        <div class="ld-back" onclick="backFromLead()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </div>
+        <div id="leadDetailBody"></div>
+      </section>
+
     </div>
   </div>
-</section>
 
-
-
-<!-- HOMEOWNERS SECTION -->
-<section id="homeowners" style="background:var(--ink);color:white;padding:7rem 4rem;">
-  <div style="max-width:1100px;margin:0 auto;">
-
-    <div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.25rem;">
-      <span style="display:block;width:1.5rem;height:1px;background:var(--gold-light);"></span>
-      For homeowners
+  <!-- MOBILE TAB BAR -->
+  <nav class="mobile-tabbar">
+    <div class="tab active" data-screen="dashboard" onclick="go('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+      <span>Home</span>
     </div>
-
-    <h2 style="font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;color:#fff;margin-bottom:1.25rem;">
-      The government is offering you<br>
-      <em style="font-style:italic;color:var(--gold-light);font-weight:300;">thousands of pounds.</em><br>
-      Most homeowners never claim it.
-    </h2>
-
-    <p style="font-size:1.05rem;color:rgba(255,255,255,0.65);line-height:1.75;max-width:620px;margin-bottom:3.5rem;">
-      There are billions in active UK government grants available to ordinary homeowners right now — for boilers, insulation, solar panels, disability adaptations, and more. The money exists. The eligibility is broad. The barrier is the application process, which is deliberately complex and time-consuming. We do it for you.
-    </p>
-
-    <!-- STAT STRIP -->
-    <div class="hw-stat-strip">
-      <div class="hw-stat-card">
-        <div class="hw-stat-num">£7,500</div>
-        <div class="hw-stat-label">Average heat pump grant</div>
-        <div class="hw-stat-note">Boiler Upgrade Scheme — available now</div>
-      </div>
-      <div class="hw-stat-card">
-        <div class="hw-stat-num">£30,000</div>
-        <div class="hw-stat-label">Max Disabled Facilities Grant</div>
-        <div class="hw-stat-note">Stairlifts, wet rooms, home adaptations</div>
-      </div>
-      <div class="hw-stat-card">
-        <div class="hw-stat-num">£1B+</div>
-        <div class="hw-stat-label">Great British Insulation Scheme budget</div>
-        <div class="hw-stat-note">Underspent every year — money going unused</div>
-      </div>
+    <div class="tab" data-screen="revenue" onclick="go('revenue')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <span>Revenue</span>
     </div>
-
-    <!-- WHAT'S AVAILABLE -->
-    <div style="margin-bottom:4rem;">
-      <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;"><span style="display:block;width:1.5rem;height:1px;background:var(--gold-light);"></span>What you could be claiming</div>
-      <div class="hw-grant-grid">
-
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
-          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">Boiler Upgrade Scheme</div>
-          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Up to £7,500</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Replace your gas boiler with a heat pump and the government covers a significant portion of the cost. Available to homeowners across England and Wales.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
-          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">Great British Insulation Scheme</div>
-          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Free insulation installation</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Loft, cavity wall, and solid wall insulation fully funded for eligible homeowners. Eligibility is broader than most people expect — income thresholds have been relaxed.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
-          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">Disabled Facilities Grant</div>
-          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Up to £30,000</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Local council funding for home adaptations — stairlifts, accessible bathrooms, widened doorways. Available to homeowners and renters. The application process is notoriously difficult. We handle it entirely.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.5rem;border-left:3px solid var(--gold);">
-          <div style="font-family:var(--serif);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:0.4rem;">ECO4 Scheme</div>
-          <div style="font-size:0.78rem;font-weight:500;color:var(--gold-light);margin-bottom:0.6rem;">Free home energy upgrades</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Heating systems, insulation, and energy measures fully funded through energy supplier obligations. Over 4 million homes are eligible. The referral and assessment chain is complex — we navigate it for you.</p>
-        </div>
-
-      </div>
+    <div class="tab" data-screen="channels" onclick="go('channels')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+      <span>Channels</span>
     </div>
-
-    <!-- WHY IT'S HARD -->
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:2.5rem;margin-bottom:3.5rem;">
-      <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:1rem;">Why most people never claim</div>
-      <div class="hw-why-grid">
-        <div>
-          <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">The paperwork</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Each scheme has its own application portal, eligibility criteria, supporting documents, and approval chain. Most people start and abandon within an hour.</p>
-        </div>
-        <div>
-          <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">The jargon</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">Government grant schemes are written by civil servants for civil servants. EPC ratings, primary heat sources, means testing, and means-tested benefit triggers — it's deliberately impenetrable.</p>
-        </div>
-        <div>
-          <div style="font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">The time</div>
-          <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">A single grant application takes 4–8 hours minimum if you know what you're doing. Most homeowners don't — so it takes days of back-and-forth before they give up entirely.</p>
-        </div>
-      </div>
+    <div class="tab" data-screen="followups" onclick="go('followups')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+      <span>Pipeline</span>
     </div>
+  </nav>
+</div>
 
-    <!-- WHAT WE DO -->
-    <div style="text-align:center;margin-bottom:3rem;">
-      <div style="font-family:var(--serif);font-size:1.8rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">We do the entire thing for you.</div>
-      <p style="font-size:1rem;color:rgba(255,255,255,0.6);max-width:580px;margin:0 auto 2rem;">For a flat fee smaller than one month's energy bill, we identify what you qualify for, gather the documents, complete the application, and submit it. You do nothing except answer a few questions.</p>
-      <a href="#homeowner-pricing" style="display:inline-block;padding:1rem 2.5rem;background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:0.9rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;">See homeowner pricing →</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- HOMEOWNER PRICING -->
-<section id="homeowner-pricing" style="background:var(--cream);padding:6rem 4rem;">
-  <div style="max-width:1100px;margin:0 auto;">
-
-    <div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">
-      <span style="display:block;width:1.5rem;height:1px;background:var(--gold);"></span>
-      Homeowner pricing
-    </div>
-    <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:600;line-height:1.15;letter-spacing:-0.025em;color:var(--ink);margin-bottom:0.75rem;">Simple, flat fees.<br><em style="font-style:italic;color:var(--gold);font-weight:300;">No surprises.</em></h2>
-    <p style="font-size:1rem;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:3rem;">No monthly retainer. No subscription. Pay once per service — and only pay for the application fee if we move forward together after the eligibility check.</p>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:780px;">
-
-      <!-- TIER 1: ELIGIBILITY REPORT -->
-      <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:4px;padding:2.5rem 2rem;position:relative;">
-        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Step 1</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;letter-spacing:-0.02em;">Eligibility Report</div>
-        <div style="font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--ink);line-height:1;margin:1rem 0 0.25rem;">£49</div>
-        <div style="font-size:0.78rem;color:var(--gold);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">One-off payment</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem;">
-          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>We assess every grant you qualify for across all UK schemes</li>
-          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Full written report delivered within 72 hours</li>
-          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Potential value of each grant clearly shown</li>
-          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>No obligation to proceed to applications</li>
-          <li style="font-size:0.85rem;color:var(--slate);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>£49 deducted from any application fee if you continue</li>
-        </ul>
-        <a href="https://buy.stripe.com/00wbJ13OH56g7gL86x0Jq00" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;">Get my eligibility report →</a>
-      </div>
-
-      <!-- TIER 2: FULL APPLICATION -->
-      <div style="background:var(--ink);border:1px solid var(--ink);border-radius:4px;padding:2.5rem 2rem;position:relative;transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,0.2);">
-        <div style="position:absolute;top:-0.75rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 1rem;border-radius:20px;white-space:nowrap;">Best value</div>
-        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.75rem;">Step 2</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:0.25rem;letter-spacing:-0.02em;">Full Application</div>
-        <div style="font-family:var(--serif);font-size:3rem;font-weight:700;color:#fff;line-height:1;margin:1rem 0 0.25rem;">£149<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:rgba(255,255,255,0.45);"> /application</span></div>
-        <div style="font-size:0.78rem;color:var(--gold-light);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.1);">Flat fee — or 8% of grant awarded, whichever you prefer</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem;">
-          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We complete the entire application on your behalf</li>
-          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We gather all supporting documents and evidence</li>
-          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We liaise with councils, energy assessors, and installers</li>
-          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>We follow up until a decision is made</li>
-          <li style="font-size:0.85rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:0.6rem;"><span style="color:var(--gold-light);font-weight:700;flex-shrink:0;">✓</span>You do nothing except provide the information we ask for</li>
-        </ul>
-        <a href="https://buy.stripe.com/9B66oH0CvbuEfNh9aB0Jq01" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--gold);color:var(--ink);font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.6rem;">Start my application →</a>
-        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.55);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.15);">Speak to us first</a>
-      </div>
-
-    </div>
-
-    <!-- REASSURANCE ROW -->
-    <div style="display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border);">
-      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>No monthly subscription</div>
-      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>No win, no additional fee on the success-fee option</div>
-      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>£49 eligibility fee credited toward application fee</div>
-      <div style="font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Available to homeowners and renters across the UK</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- DIRECT CHECKOUT -->
-<section id="checkout" style="background:var(--warm-white);padding:6rem 4rem;">
-  <div class="section-inner">
-    <div class="section-label">Get started now</div>
-    <h2 class="section-heading">Choose your plan and<br><em>start immediately</em></h2>
-    <p class="section-sub">No lengthy onboarding. Select your tier, complete checkout, and we reach out within 24 hours to begin your grant eligibility assessment.</p>
-
-    <div class="checkout-grid">
-
-      <!-- RADAR CHECKOUT -->
-      <div style="border:1px solid var(--border);border-radius:4px;padding:2rem;background:var(--cream);">
-        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Starter</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Radar</div>
-        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--ink);line-height:1;margin:0.75rem 0 0.25rem;">£149<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:var(--muted);">/mo</span></div>
-        <div style="font-size:0.78rem;color:var(--gold);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">+ 7% success fee on awarded grants</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;">
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Monthly grant scan &amp; eligibility report</li>
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Sector-specific monitoring</li>
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>You write and submit applications</li>
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Email support</li>
-        </ul>
-        <a href="https://buy.stripe.com/14AdR9gBt7eo44z3Qh0Jq02" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £149/mo →</a>
-        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
-      </div>
-
-      <!-- GROWTH CHECKOUT (featured) -->
-      <div style="border:1px solid var(--ink);border-radius:4px;padding:2rem;background:var(--ink);transform:scale(1.03);position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
-        <div style="position:absolute;top:-0.75rem;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 1rem;border-radius:20px;white-space:nowrap;">Most popular</div>
-        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">Growth</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:0.25rem;">Done-for-you</div>
-        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:#fff;line-height:1;margin:0.75rem 0 0.25rem;">£499<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:rgba(255,255,255,0.5);">/mo</span></div>
-        <div style="font-size:0.78rem;color:var(--gold-light);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.1);">+ 7% success fee on awarded grants</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;">
-          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>Everything in Radar</li>
-          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>1 full application written &amp; submitted/month</li>
-          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>AI-powered drafting, expert review</li>
-          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>Monthly strategy call</li>
-          <li style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:0.5rem;"><span style="color:var(--gold-light);font-weight:700;">✓</span>Priority turnaround</li>
-        </ul>
-        <a href="https://buy.stripe.com/14A7sL1Gz6ak0SnbiJ0Jq03" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--gold);color:var(--ink);font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £499/mo →</a>
-        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:rgba(255,255,255,0.6);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid rgba(255,255,255,0.2);">Book a call first</a>
-      </div>
-
-      <!-- UNLIMITED CHECKOUT -->
-      <div style="border:1px solid var(--border);border-radius:4px;padding:2rem;background:var(--cream);">
-        <div style="font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Full Service</div>
-        <div style="font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.25rem;">Unlimited</div>
-        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--ink);line-height:1;margin:0.75rem 0 0.25rem;">£999<span style="font-family:var(--sans);font-size:1rem;font-weight:400;color:var(--muted);">/mo</span></div>
-        <div style="font-size:0.78rem;color:var(--gold);font-weight:500;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);">+ 5% success fee on awarded grants</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;">
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Everything in Done-for-you</li>
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Up to 3 applications per month</li>
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Compliance &amp; reporting support</li>
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Quarterly strategy review</li>
-          <li style="font-size:0.84rem;color:var(--slate);display:flex;gap:0.5rem;"><span style="color:var(--gold);font-weight:700;">✓</span>Dedicated account management</li>
-        </ul>
-        <a href="https://buy.stripe.com/bJe9AT70TdCMfNh86x0Jq04" style="display:block;width:100%;padding:0.9rem;text-align:center;background:var(--ink);color:var(--cream);font-size:0.85rem;font-weight:500;letter-spacing:0.03em;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-bottom:0.5rem;">Checkout — £999/mo →</a>
-        <a href="https://calendly.com/zacharia-consulting/free-grant-eligibility-check-homeowners" style="display:block;width:100%;padding:0.75rem;text-align:center;background:transparent;color:var(--ink);font-size:0.82rem;font-weight:400;text-decoration:none;border-radius:2px;border:1px solid var(--border);">Book a call first</a>
-      </div>
-
-    </div>
-
-    <p style="text-align:center;font-size:0.82rem;color:var(--muted);margin-top:2rem;">All plans include a 30-day notice period. Cancel anytime. Success fee applies only when a grant is awarded to your business.</p>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <h2 class="cta-heading">Find out what<br>you're <em>leaving on the table</em></h2>
-    <p class="cta-sub">Book a free 20-minute eligibility check. We'll tell you exactly which grants you qualify for right now — no commitment, no hard sell, no fee.</p>
-    <a href="https://calendly.com/zacharia-consulting/30min" class="btn-gold">Book your free call</a>
-    <div class="cta-reassurance">
-      <span>20 minutes, no commitment</span>
-      <span>Free eligibility report on the call</span>
-      <span>No win, minimal fee</span>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Apex <span>Funding</span> Partners</div>
-  <p>Helping UK businesses claim the funding they're owed.</p>
-  <p>© 2026 Apex Funding Partners. All rights reserved. &nbsp;·&nbsp; <a href="/privacy.html" style="color:var(--muted);text-decoration:none;">Privacy Policy</a></p>
-</footer>
-
-
-<!-- SCROLL TO TOP BUTTON -->
-<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--cream);border:none;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.2rem;z-index:999;transition:all 0.2s;box-shadow:0 4px 20px rgba(0,0,0,0.2);">&#8679;</button>
 <script>
-  var btn=document.getElementById('scrollTop');
-  window.addEventListener('scroll',function(){
-    btn.style.display=window.scrollY>400?'flex':'none';
-  });
-  btn.addEventListener('mouseenter',function(){this.style.background='#b8860b';});
-  btn.addEventListener('mouseleave',function(){this.style.background='var(--ink)';});
-</script>
+// ════════════════════════  ICONS  ════════════════════════
+const ICON = {
+  whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.2-.7-2.7-1.1-4.4-3.8-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.6-.1l1.8.9c.2.1.4.2.5.3 0 .2 0 .8-.3 1.1z"/></svg>',
+  phone: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.6 15.6 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1z"/></svg>',
+  instagram: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.5.2 1 .5 1.4.9.4.4.7.9.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.5-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.8 3.8 0 01-1.4-.9 3.8 3.8 0 01-.9-1.4c-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.5.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.1 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.4 7.8a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg>',
+  facebook: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg>',
+  website: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg>',
+  google: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 01-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.7-5.6-4.1H3.1v2.6A10 10 0 0012 22z" opacity="0.85"/><path d="M6.4 13.9a6 6 0 010-3.8V7.5H3.1a10 10 0 000 9z" opacity="0.6"/><path d="M12 6.1c1.5 0 2.8.5 3.8 1.5l2.8-2.8A10 10 0 003.1 7.5l3.3 2.6C7.2 7.8 9.4 6.1 12 6.1z" opacity="0.9"/></svg>',
+};
+const CH_CLASS = { whatsapp:'ch-wa', phone:'ch-ph', instagram:'ch-ig', facebook:'ch-fb', website:'ch-web', google:'ch-gg' };
+const CH_NAME  = { whatsapp:'WhatsApp', phone:'Missed call', instagram:'Instagram DM', facebook:'Facebook', website:'Website chat', google:'Google Business' };
 
+// ════════════════════════  AVATAR COLOURS  ════════════════════════
+const AV_COLORS = ['#4F46E5','#0EA5E9','#059669','#D946EF','#F59E0B','#EF4444','#8B5CF6','#0891B2','#DB2777','#65A30D'];
+function avColor(name){ let h=0; for(let i=0;i<name.length;i++) h=name.charCodeAt(i)+((h<<5)-h); return AV_COLORS[Math.abs(h)%AV_COLORS.length]; }
+function initials(name){ return name.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase(); }
+function av(name, size){ return `<div class="av av-${size}" style="background:${avColor(name)}">${initials(name)}</div>`; }
+
+// ════════════════════════  DATA  ════════════════════════
+const LEADS = [
+  { id:'sarah', name:'Sarah Whitfield', channel:'whatsapp', channels:['website','whatsapp'], treatment:'Invisalign', treatDetail:'Invisalign · crowding', value:4500, score:92, status:'Qualified', time:'2 min ago', urgency:'high', phone:'07700 900 142', email:'s.whitfield@gmail.com',
+    nextAction:'Call within 10 minutes — wants to start within the month and asked about finance.',
+    breakdown:[['Invisalign — high-value treatment',30],['Wants to start within 30 days',25],['Provided phone number',20],['Asked about finance',15],['Requested consultation',2]],
+    qual:[['What are you looking to improve?','Crowding and overlapping at the front'],['Had braces or aligners before?','No — first time'],['When hoping to start?','Within the next month, before a wedding'],['Interested in finance?','Yes — wants monthly payment options'],['Preferred appointment?','Evenings']],
+    thread:[
+      {ch:'website', dir:'in', t:'Today 7:52 PM', body:'Filled in website enquiry form — "Interested in Invisalign, roughly how much?"'},
+      {ch:'whatsapp', dir:'out', t:'Today 7:52 PM', body:'Hi Sarah, thanks for your enquiry. Invisalign usually starts from £2,995 — the exact cost depends on case complexity. Can I ask what you\'re mainly looking to improve?'},
+      {ch:'whatsapp', dir:'in', t:'Today 7:54 PM', body:'My front teeth are a bit crowded. I have a wedding in March so want to start soon. Do you do payment plans?'},
+      {ch:'whatsapp', dir:'out', t:'Today 7:54 PM', body:'Absolutely — finance is available subject to approval. The best next step is a consultation so the dentist can confirm suitability and give an exact quote. What works better for you, mornings or evenings?'},
+      {ch:'whatsapp', dir:'in', t:'Today 7:55 PM', body:'Evenings are best. My number is 07700 900142.'},
+    ],
+    timeline:[['Website enquiry form submitted','Today 7:52 PM'],['AI responded on WhatsApp','Today 7:52 PM'],['Treatment qualified — Invisalign','Today 7:54 PM'],['Finance interest captured','Today 7:54 PM'],['Contact details collected','Today 7:55 PM'],['High-value alert sent to clinic','Today 7:55 PM']] },
+
+  { id:'james', name:'James Okafor', channel:'phone', channels:['phone','whatsapp'], treatment:'Full arch implants', treatDetail:'Full arch implants', value:24000, score:96, status:'New', time:'8 min ago', urgency:'high', phone:'07911 234 567', email:'j.okafor@outlook.com',
+    nextAction:'Top priority. £24,000 full-arch case, recovered from a missed call. Call back personally now.',
+    breakdown:[['Full arch — highest-value treatment',30],['Multiple/full arch case',25],['Provided phone number',20],['Asked about finance',15],['Engaged after missed call',6]],
+    qual:[['Replace one, several, or full arch?','Full arch — upper and lower'],['How long missing / current solution?','Currently wearing dentures, unhappy with them'],['Previous implant consultation?','No, first enquiry'],['Interested in finance?','Yes — keen to spread the cost'],['Preferred contact?','Phone call, daytime']],
+    thread:[
+      {ch:'phone', dir:'in', t:'Today 7:46 PM', body:'Inbound call — not answered (reception with a patient). Call duration: rang 28s.'},
+      {ch:'whatsapp', dir:'out', t:'Today 7:46 PM', body:'Hi, this is Harley Street Smile Clinic. Sorry we missed your call — our team may have been with a patient. I can help right now. What were you calling about?'},
+      {ch:'whatsapp', dir:'in', t:'Today 7:49 PM', body:'I\'ve got dentures top and bottom and I\'m fed up with them. Looking into implants for the whole mouth. What sort of money are we talking?'},
+      {ch:'whatsapp', dir:'out', t:'Today 7:49 PM', body:'Full-arch implant solutions are something our specialist team handles regularly. Cost depends on the approach, and finance is available to spread it. The essential first step is a consultation with scans. Can I arrange a callback to talk it through?'},
+      {ch:'whatsapp', dir:'in', t:'Today 7:50 PM', body:'Yes please. Daytime is best for me. 07911 234567'},
+    ],
+    timeline:[['Inbound call missed','Today 7:46 PM'],['AI text-back sent within 30s','Today 7:46 PM'],['Patient re-engaged on WhatsApp','Today 7:49 PM'],['Full-arch case identified','Today 7:49 PM'],['Callback requested','Today 7:50 PM'],['Priority alert sent — £24,000','Today 7:50 PM']] },
+
+  { id:'priya', name:'Priya Sharma', channel:'instagram', channels:['instagram'], treatment:'Porcelain veneers', treatDetail:'Veneers · 6 upper', value:4800, score:84, status:'Qualified', time:'22 min ago', urgency:'high', phone:'07822 555 901', email:'priya.sharma@gmail.com',
+    nextAction:'Qualified veneers lead from Instagram. Wants a smile makeover — book a cosmetic consultation.',
+    breakdown:[['Veneers — high-value treatment',30],['Full upper smile (6 teeth)',20],['Provided phone number',20],['Researching, flexible timeline',10],['Engaged across 4 messages',4]],
+    qual:[['Main concern?','Colour and shape of upper teeth'],['One/several/full smile?','Top 6 — full smile line'],['Composite or porcelain?','Porcelain, wants it to last'],['Timeline?','In the next few months'],['Preferred appointment?','Saturday if possible']],
+    thread:[
+      {ch:'instagram', dir:'in', t:'Today 7:32 PM', body:'DM: "Hiya! Saw your veneers before/afters 😍 how much for the top teeth?"'},
+      {ch:'instagram', dir:'out', t:'Today 7:33 PM', body:'Hi Priya! Porcelain veneers start from £750 per tooth — for a full upper smile the team would design it around your face shape. What\'s the main thing you\'d like to change?'},
+      {ch:'instagram', dir:'in', t:'Today 7:35 PM', body:'The colour mainly and they\'re a bit uneven. Want them white and straight for my sister\'s wedding'},
+      {ch:'instagram', dir:'out', t:'Today 7:36 PM', body:'That\'s a lovely goal. A cosmetic consultation is the best next step — we can do Saturdays. Can I take a number so the team can confirm a time?'},
+      {ch:'instagram', dir:'in', t:'Today 7:38 PM', body:'07822 555901 — Saturday works!'},
+    ],
+    timeline:[['Instagram DM received','Today 7:32 PM'],['AI responded in DM','Today 7:33 PM'],['Veneers qualified — full upper','Today 7:35 PM'],['Contact details collected','Today 7:38 PM'],['Consultation requested — Saturday','Today 7:38 PM']] },
+
+  { id:'daniel', name:'Daniel Cole', channel:'website', channels:['website','phone'], treatment:'Multiple implants', treatDetail:'Implants · 3 teeth', value:8500, score:88, status:'Follow-up', time:'41 min ago', urgency:'high', phone:'07733 198 220', email:'dan.cole@icloud.com',
+    nextAction:'Follow-up sent, no reply yet. £8,500 implant case — worth a personal call today.',
+    breakdown:[['Implants — high-value treatment',30],['Multiple teeth (3)',20],['Provided phone number',20],['Asked about finance',15],['Opened follow-up message',3]],
+    qual:[['One/several/full arch?','Three missing on the lower left'],['How long missing?','About two years'],['Current solution?','Nothing — gap currently'],['Interested in finance?','Yes'],['Preferred appointment?','Weekday afternoons']],
+    thread:[
+      {ch:'website', dir:'in', t:'Today 7:13 PM', body:'Website chat: "I\'ve got 3 missing teeth at the bottom left, can you do implants and how much?"'},
+      {ch:'website', dir:'out', t:'Today 7:13 PM', body:'Implants start from £2,500 each, and the exact plan depends on the area and bone health. For 3 teeth the dentist would assess the best approach at a consultation. Can I get a few details to arrange that?'},
+      {ch:'website', dir:'in', t:'Today 7:15 PM', body:'Sure. Dan Cole, 07733 198220. Do you do finance?'},
+      {ch:'whatsapp', dir:'out', t:'Today 7:54 PM', body:'Hi Dan — following up on your implant enquiry. Finance is available to spread the cost. Shall I book you a consultation for a weekday afternoon?'},
+    ],
+    timeline:[['Website chat started','Today 7:13 PM'],['Implant case qualified','Today 7:13 PM'],['Contact details collected','Today 7:15 PM'],['Follow-up sent on WhatsApp','Today 7:54 PM'],['Awaiting reply','—']] },
+
+  { id:'mohammed', name:'Mohammed Patel', channel:'instagram', channels:['instagram','whatsapp'], treatment:'Smile makeover', treatDetail:'Smile makeover', value:12000, score:90, status:'New', time:'1 hr ago', urgency:'high', phone:'07900 111 230', email:'m.patel88@gmail.com',
+    nextAction:'£12,000 smile makeover enquiry. High intent — book a cosmetic consultation today.',
+    breakdown:[['Smile makeover — high-value',30],['Multiple treatments / full smile',25],['Provided phone number',20],['Wants to start soon',12],['Strong engagement',3]],
+    qual:[['What would you like to change?','Whole smile — whitening, shape, alignment'],['One area or full smile?','Full smile makeover'],['Timeline?','Wedding in summer'],['Interested in finance?','Open to it'],['Preferred appointment?','Evening or Saturday']],
+    thread:[
+      {ch:'instagram', dir:'in', t:'Today 6:58 PM', body:'DM: "I want to completely transform my smile for my wedding. Where do I start?"'},
+      {ch:'instagram', dir:'out', t:'Today 6:59 PM', body:'Congratulations! A smile makeover combines treatments like whitening, bonding or veneers and alignment. The team designs it around your wedding date. Can I move this to WhatsApp to get you booked in?'},
+      {ch:'whatsapp', dir:'in', t:'Today 7:02 PM', body:'Yes — it\'s in summer so plenty of time. 07900 111230'},
+      {ch:'whatsapp', dir:'out', t:'Today 7:02 PM', body:'Perfect, lots of time to plan it properly. The first step is a smile consultation. Evenings or Saturdays available — which suits?'},
+    ],
+    timeline:[['Instagram DM received','Today 6:58 PM'],['Moved to WhatsApp','Today 7:02 PM'],['Smile makeover qualified','Today 7:02 PM'],['Contact details collected','Today 7:02 PM'],['High-value alert sent — £12,000','Today 7:02 PM']] },
+
+  { id:'emma', name:'Emma Thompson', channel:'website', channels:['website'], treatment:'Teeth whitening', treatDetail:'Whitening', value:450, score:58, status:'New', time:'1 hr ago', urgency:'normal', phone:'07845 662 100', email:'emma.t@gmail.com',
+    nextAction:'Standard whitening enquiry. AI has offered booking — no action needed unless she replies.',
+    breakdown:[['Whitening — standard treatment',15],['Provided phone number',20],['Event coming up',13],['Engaged with booking offer',10]],
+    qual:[['In-clinic or take-home?','Not sure — wants advice'],['Any crowns or veneers front?','No, all natural'],['Event date?','Holiday in 6 weeks'],['Preferred appointment?','Lunchtime']],
+    thread:[
+      {ch:'website', dir:'in', t:'Today 6:44 PM', body:'Website chat: "How much is teeth whitening and how long does it take?"'},
+      {ch:'website', dir:'out', t:'Today 6:44 PM', body:'Professional whitening starts from £350. We offer in-clinic (about an hour) or custom take-home trays. Is there an event you\'re preparing for?'},
+      {ch:'website', dir:'in', t:'Today 6:46 PM', body:'Going on holiday in 6 weeks, want a brighter smile for photos'},
+      {ch:'website', dir:'out', t:'Today 6:46 PM', body:'Plenty of time. A quick check-up confirms suitability and gets your trays made. Shall I arrange that? A lunchtime slot maybe?'},
+    ],
+    timeline:[['Website chat started','Today 6:44 PM'],['Whitening qualified','Today 6:44 PM'],['Booking offered','Today 6:46 PM'],['Awaiting reply','—']] },
+
+  { id:'sophie', name:'Sophie Bennett', channel:'facebook', channels:['facebook'], treatment:'Composite bonding', treatDetail:'Composite bonding', value:1800, score:66, status:'Contacted', time:'2 hr ago', urgency:'normal', phone:'07712 884 502', email:'sophie.bennett@hotmail.com',
+    nextAction:'Contacted, awaiting decision on bonding vs veneers. Gentle follow-up tomorrow.',
+    breakdown:[['Bonding — medium-value',18],['Several teeth',12],['Provided phone number',20],['Researching options',12],['Opened follow-up',4]],
+    qual:[['Main concern?','Small chip and a gap at the front'],['Bonding or veneers?','Deciding between the two'],['How many teeth?','Two or three'],['Timeline?','No rush, this year'],['Preferred appointment?','Weekends']],
+    thread:[
+      {ch:'facebook', dir:'in', t:'Today 5:50 PM', body:'Messenger: "Do you fix small gaps with bonding? How much roughly?"'},
+      {ch:'facebook', dir:'out', t:'Today 5:51 PM', body:'Yes — composite bonding starts from £250 per tooth and is great for chips and small gaps, done in one visit. For a couple of teeth a consultation confirms the best approach. Can I take a few details?'},
+      {ch:'facebook', dir:'in', t:'Today 5:53 PM', body:'Sophie Bennett, 07712 884502. Is bonding or veneers better?'},
+    ],
+    timeline:[['Facebook message received','Today 5:50 PM'],['Bonding qualified','Today 5:51 PM'],['Contact details collected','Today 5:53 PM'],['Follow-up scheduled','Tomorrow 10:00 AM']] },
+
+  { id:'oliver', name:'Oliver Grant', channel:'google', channels:['google'], treatment:'Single implant', treatDetail:'Single implant', value:3000, score:72, status:'Qualified', time:'3 hr ago', urgency:'normal', phone:'07999 332 118', email:'o.grant@gmail.com',
+    nextAction:'Qualified single-implant lead from Google. Book a consultation when he confirms a time.',
+    breakdown:[['Single implant — high-value',30],['Provided phone number',20],['Clear intent',15],['Engaged with booking','7']],
+    qual:[['One/several/full?','One — upper right'],['How long missing?','Six months, had it extracted'],['Current solution?','Gap'],['Interested in finance?','Maybe'],['Preferred appointment?','Any weekday']],
+    thread:[
+      {ch:'google', dir:'in', t:'Today 4:40 PM', body:'Google Business message: "Do you do single dental implants? Had a tooth out recently."'},
+      {ch:'google', dir:'out', t:'Today 4:41 PM', body:'Yes — single implants start from £2,500. After an extraction the dentist checks healing and bone before planning. A consultation is the first step. Can I arrange one for you?'},
+      {ch:'google', dir:'in', t:'Today 4:43 PM', body:'Yes please, any weekday. 07999 332118'},
+    ],
+    timeline:[['Google Business message','Today 4:40 PM'],['Implant qualified','Today 4:41 PM'],['Contact details collected','Today 4:43 PM'],['Consultation requested','Today 4:43 PM']] },
+
+  { id:'charlotte', name:'Charlotte Hughes', channel:'instagram', channels:['instagram'], treatment:'Botox + filler', treatDetail:'Aesthetics · Botox + filler', value:700, score:61, status:'Booked', time:'Today 9:42 AM', urgency:'normal', phone:'07700 445 011', email:'charlotte.h@gmail.com',
+    nextAction:'Booked in for Thursday. Reminder will send automatically 24h before.',
+    breakdown:[['Aesthetics — standard',12],['Returning interest',10],['Provided phone number',20],['Booked consultation',19]],
+    qual:[['Botox, filler or both?','Both — forehead and lips'],['First time or before?','Had Botox before, new to us'],['Area of concern?','Forehead lines and lip volume'],['Preferred appointment?','Thursday evening']],
+    thread:[
+      {ch:'instagram', dir:'in', t:'Today 9:38 AM', body:'DM: "Do you do Botox and lip filler? Want to book in"'},
+      {ch:'instagram', dir:'out', t:'Today 9:39 AM', body:'We do — both are carried out by our clinicians after a quick consultation. We have Thursday evening available. Shall I book you in?'},
+      {ch:'instagram', dir:'in', t:'Today 9:41 AM', body:'Yes perfect, Thursday eve. 07700 445011'},
+      {ch:'instagram', dir:'out', t:'Today 9:42 AM', body:'Booked! ✅ Thursday 6:30 PM. You\'ll get a reminder the day before. See you then 😊'},
+    ],
+    timeline:[['Instagram DM received','Today 9:38 AM'],['Aesthetics qualified','Today 9:39 AM'],['Consultation booked','Today 9:42 AM'],['Confirmation sent','Today 9:42 AM'],['Reminder scheduled','Wed 6:30 PM']] },
+
+  { id:'aisha', name:'Aisha Khan', channel:'whatsapp', channels:['whatsapp'], treatment:'Invisalign', treatDetail:'Invisalign', value:4200, score:79, status:'Contacted', time:'Today 9:15 AM', urgency:'normal', phone:'07866 220 945', email:'aisha.khan@gmail.com',
+    nextAction:'Contacted this morning, considering finance. Follow-up tomorrow if no reply.',
+    breakdown:[['Invisalign — high-value',30],['Provided phone number',20],['Asked about finance',15],['Researching timeline',10],['Engaged',4]],
+    qual:[['What to improve?','Slight crowding, mostly bottom'],['Had braces before?','Yes, as a teenager'],['When to start?','Thinking about it for a few months'],['Interested in finance?','Yes, depends on monthly cost'],['Preferred appointment?','After work']],
+    thread:[
+      {ch:'whatsapp', dir:'in', t:'Today 9:10 AM', body:'"Hi, my bottom teeth have shifted since my braces years ago. Is Invisalign suitable and how much monthly?"'},
+      {ch:'whatsapp', dir:'out', t:'Today 9:11 AM', body:'Invisalign is often ideal for relapse after braces. From £2,995 total, and finance can spread it into monthly payments. The dentist confirms the exact plan at a consultation. Can I book you an after-work slot?'},
+      {ch:'whatsapp', dir:'in', t:'Today 9:15 AM', body:'Let me think about the monthly cost and get back to you. 07866 220945'},
+    ],
+    timeline:[['WhatsApp enquiry received','Today 9:10 AM'],['Invisalign qualified','Today 9:11 AM'],['Finance interest captured','Today 9:11 AM'],['Follow-up scheduled','Tomorrow 11:00 AM']] },
+
+  { id:'tom', name:'Tom Fletcher', channel:'website', channels:['website'], treatment:'Teeth whitening', treatDetail:'Whitening', value:450, score:49, status:'Cold', time:'Yesterday', urgency:'cold', phone:'—', email:'—',
+    nextAction:'Went cold — no reply after 3 follow-ups. Add to monthly reactivation campaign.',
+    breakdown:[['Whitening — standard',15],['Engaged briefly',14],['No phone provided',0],['No response to follow-ups',0]],
+    qual:[['In-clinic or take-home?','Asked the difference'],['Event?','None mentioned'],['Phone provided?','No'],['Status','Did not respond after 3 follow-ups']],
+    thread:[
+      {ch:'website', dir:'in', t:'Yesterday 8:20 PM', body:'Website chat: "whats the difference between in clinic and home whitening"'},
+      {ch:'website', dir:'out', t:'Yesterday 8:20 PM', body:'Great question — in-clinic is faster (about an hour), take-home trays work gradually over two weeks. Both are professional strength. Would you like to book a quick check-up to get started?'},
+      {ch:'website', dir:'out', t:'Yesterday 9:00 PM', body:'Just checking in — would you like me to arrange a whitening check-up? Happy to find a time that suits.'},
+    ],
+    timeline:[['Website chat started','Yesterday 8:20 PM'],['Follow-up 1 sent','Yesterday 9:00 PM'],['Follow-up 2 sent','Today 9:00 AM'],['No response — marked cold','Today 2:00 PM']] },
+
+  { id:'grace', name:"Grace O'Sullivan", channel:'facebook', channels:['facebook'], treatment:'Porcelain veneers', treatDetail:'Veneers', value:5400, score:81, status:'Cold', time:'Yesterday', urgency:'cold', phone:'07700 909 334', email:'grace.osullivan@gmail.com',
+    nextAction:'High-value (£5,400) but going cold. Worth a personal call before adding to reactivation.',
+    breakdown:[['Veneers — high-value',30],['Several teeth',15],['Provided phone number',20],['No reply in 48h',0],['Initial strong interest',16]],
+    qual:[['Main concern?','Discoloured front teeth'],['How many teeth?','Top four'],['Composite or porcelain?','Porcelain'],['Timeline?','Was keen, then went quiet'],['Status','No contact in 48 hours']],
+    thread:[
+      {ch:'facebook', dir:'in', t:'Yesterday 1:10 PM', body:'Messenger: "Interested in veneers for my top 4 teeth, they\'re quite discoloured"'},
+      {ch:'facebook', dir:'out', t:'Yesterday 1:11 PM', body:'Porcelain veneers are excellent for that — from £750 per tooth. For four teeth the team designs them to match beautifully. Can I take a number to arrange a consultation?'},
+      {ch:'facebook', dir:'in', t:'Yesterday 1:14 PM', body:'07700 909334, sounds good'},
+      {ch:'facebook', dir:'out', t:'Today 9:30 AM', body:'Hi Grace, following up on your veneers enquiry — shall I find you a consultation slot this week?'},
+    ],
+    timeline:[['Facebook message received','Yesterday 1:10 PM'],['Veneers qualified','Yesterday 1:11 PM'],['Contact details collected','Yesterday 1:14 PM'],['Follow-up sent','Today 9:30 AM'],['No reply in 48h — at risk','Today']] },
+];
+
+const BY_ID = Object.fromEntries(LEADS.map(l => [l.id, l]));
+
+// ════════════════════════  HELPERS  ════════════════════════
+function gbp(n){ return '£' + n.toLocaleString('en-GB'); }
+function scoreClass(s){ return s>=75 ? 'sc-hi' : s>=55 ? 'sc-md' : 'sc-lo'; }
+function statusClass(s){ return { 'New':'st-new','Qualified':'st-qual','Booked':'st-booked','Follow-up':'st-follow','Cold':'st-cold','Contacted':'st-cont' }[s] || 'st-new'; }
+function urgencyClass(u){ return u==='high' ? 'high' : u==='cold' ? '' : (u==='warm'?'warm':''); }
+
+// ════════════════════════  RENDER: FEED  ════════════════════════
+function renderFeed(){
+  const feed = LEADS.slice(0,10);
+  document.getElementById('feedList').innerHTML = feed.map(l => `
+    <div class="feed-row ${l.urgency==='high'?'high':''}" onclick="openLead('${l.id}')">
+      <div class="ch-icon ${CH_CLASS[l.channel]}">${ICON[l.channel]}</div>
+      <div class="feed-main">
+        <div class="feed-line1">
+          <span class="feed-name">${l.name}</span>
+          <span class="feed-time">${l.time}</span>
+        </div>
+        <div class="feed-treat">${l.treatDetail} · via ${CH_NAME[l.channel]}</div>
+        <div class="mobile-meta">
+          <span class="feed-value tnum">${gbp(l.value)}</span>
+          <span class="score-pill ${scoreClass(l.score)} tnum">${l.score}</span>
+          <span class="status-badge ${statusClass(l.status)}">${l.status}</span>
+        </div>
+      </div>
+      <div class="feed-right">
+        <span class="feed-value tnum">${gbp(l.value)}</span>
+        <span class="score-pill ${scoreClass(l.score)} tnum">${l.score}<span style="opacity:.5;font-weight:600">/100</span></span>
+        <span class="status-badge ${statusClass(l.status)}">${l.status}</span>
+      </div>
+    </div>`).join('');
+}
+
+// ════════════════════════  RENDER: REVENUE TOP LEADS  ════════════════════════
+function renderTopLeads(){
+  const top = [...LEADS].sort((a,b)=>b.value-a.value).slice(0,5);
+  document.getElementById('topLeadsBody').innerHTML = top.map(l => `
+    <tr>
+      <td><div class="td-name">${av(l.name,32)}<span style="font-weight:600">${l.name}</span></div></td>
+      <td style="color:var(--gray-500)">${l.treatDetail}</td>
+      <td class="r"><span style="font-weight:700">${gbp(l.value)}</span></td>
+      <td style="color:var(--gray-400)">${l.time}</td>
+      <td class="r"><button class="btn btn-primary btn-sm" onclick="openLead('${l.id}')">Chase now</button></td>
+    </tr>`).join('');
+}
+
+// ════════════════════════  RENDER: CHANNELS  ════════════════════════
+const CHANNELS = [
+  { key:'whatsapp', name:'WhatsApp', sub:'Business API', vol:89, rate:'98%', score:71 },
+  { key:'phone', name:'Phone / Missed calls', sub:'Recovered automatically', vol:34, rate:'91%', score:64, volLabel:'recovered this month' },
+  { key:'instagram', name:'Instagram DMs', sub:'Direct messages', vol:41, rate:'87%', score:68 },
+  { key:'website', name:'Website chat', sub:'On-site assistant', vol:67, rate:'95%', score:59 },
+  { key:'facebook', name:'Facebook', sub:'Messenger', vol:23, rate:'82%', score:55 },
+  { key:'google', name:'Google Business', sub:'Business profile messages', vol:18, rate:'90%', score:62 },
+];
+function renderChannels(){
+  document.getElementById('chanGrid').innerHTML = CHANNELS.map(c => `
+    <div class="chan-card">
+      <div class="chan-top">
+        <div class="ch-icon ${CH_CLASS[c.key]}">${ICON[c.key]}</div>
+        <div><div class="chan-name">${c.name}</div><div class="chan-sub">${c.sub}</div></div>
+      </div>
+      <div class="chan-vol tnum">${c.vol}</div>
+      <div class="chan-vol-lbl">${c.volLabel || 'enquiries this month'}</div>
+      <div class="chan-stats">
+        <div class="chan-stat"><div class="v tnum">${c.rate}</div><div class="k">Response rate</div></div>
+        <div class="chan-stat"><div class="v tnum">${c.score}</div><div class="k">Avg lead score</div></div>
+      </div>
+    </div>`).join('');
+}
+
+// ════════════════════════  RENDER: KANBAN  ════════════════════════
+const KANBAN_COLS = ['New','Contacted','Qualified','Booked','Cold'];
+function renderKanban(){
+  const board = document.getElementById('kanban');
+  board.innerHTML = KANBAN_COLS.map(col => {
+    const cards = LEADS.filter(l => l.status === col);
+    const isCold = col === 'Cold';
+    return `
+      <div class="kcol ${isCold?'cold':''}" data-col="${col}"
+           ondragover="kOver(event)" ondragleave="kLeave(event)" ondrop="kDrop(event)">
+        <div class="kcol-head"><span class="t">${col}</span><span class="kcol-count" data-count="${col}">${cards.length}</span></div>
+        <div class="kcol-body">
+          ${cards.map(l => kcard(l, isCold)).join('')}
+        </div>
+      </div>`;
+  }).join('');
+  bindDrag();
+}
+function kcard(l, isCold){
+  const days = l.urgency==='cold' ? '2 days ago' : (l.time.includes('Today')||l.time.includes('min')||l.time.includes('hr') ? 'today' : l.time.toLowerCase());
+  return `
+    <div class="kcard" draggable="true" data-id="${l.id}" onclick="openLead('${l.id}')">
+      <div class="kcard-top">${av(l.name,32)}<span class="kcard-name">${l.name}</span></div>
+      <div class="kcard-treat">${l.treatDetail}</div>
+      <div class="kcard-foot">
+        <span class="kcard-val tnum">${gbp(l.value)}</span>
+        <span class="kcard-days ${isCold?'warn':''}">${isCold?'⚠ '+days:days}</span>
+      </div>
+    </div>`;
+}
+let dragId = null;
+function bindDrag(){
+  document.querySelectorAll('.kcard').forEach(card => {
+    card.addEventListener('dragstart', e => { dragId = card.dataset.id; card.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
+    card.addEventListener('dragend', () => { card.classList.remove('dragging'); dragId=null; });
+  });
+}
+function kOver(e){ e.preventDefault(); e.currentTarget.classList.add('dragover'); }
+function kLeave(e){ e.currentTarget.classList.remove('dragover'); }
+function kDrop(e){
+  e.preventDefault();
+  e.currentTarget.classList.remove('dragover');
+  if(!dragId) return;
+  const newCol = e.currentTarget.dataset.col;
+  const lead = BY_ID[dragId];
+  lead.status = newCol;
+  if(newCol==='Cold') lead.urgency='cold'; else if(lead.urgency==='cold') lead.urgency='normal';
+  renderKanban();
+}
+
+// ════════════════════════  RENDER: LEAD DETAIL  ════════════════════════
+function renderLead(l){
+  const scoreFill = Math.min(100, l.score);
+  const chDots = l.channels.map(c => `<div class="ld-ch-dot ${CH_CLASS[c]}">${ICON[c]}</div>`).join('');
+  const body = `
+    <div class="ld-profile">
+      ${av(l.name,56)}
+      <div class="info">
+        <div class="nm">${l.name}</div>
+        <div class="meta">
+          <span>${l.treatDetail}</span><span style="color:var(--gray-300)">·</span>
+          <span>${l.phone}</span><span style="color:var(--gray-300)">·</span>
+          <span>${l.email}</span>
+        </div>
+        <div class="ld-chs">${chDots}</div>
+      </div>
+      <div style="text-align:right; flex-shrink:0;">
+        <div style="font-size:22px; font-weight:800; letter-spacing:-0.02em;">${gbp(l.value)}</div>
+        <div style="margin-top:6px;"><span class="status-badge ${statusClass(l.status)}">${l.status}</span></div>
+      </div>
+    </div>
+
+    <div class="ld-grid">
+      <div>
+        <div class="action-card" style="margin-bottom:18px;">
+          <h3>⚡ Recommended next action</h3>
+          <p style="margin-bottom:14px;">${l.nextAction}</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-sm">Call ${l.name.split(' ')[0]}</button>
+            <button class="btn btn-ghost btn-sm">Send WhatsApp</button>
+            <button class="btn btn-ghost btn-sm">Book consultation</button>
+          </div>
+        </div>
+
+        <div class="sec-label">Unified conversation · all channels</div>
+        <div class="panel" style="padding:18px 20px; margin-bottom:18px;">
+          <div class="thread">
+            ${l.thread.map(m => `
+              <div class="msg-block">
+                <div class="msg-ch ${CH_CLASS[m.ch]}">${ICON[m.ch]}</div>
+                <div class="msg-body">
+                  <div class="msg-meta">
+                    <span class="msg-ch-name">${CH_NAME[m.ch]}</span>
+                    <span class="msg-dir ${m.dir==='in'?'dir-in':'dir-out'}">${m.dir==='in'?'Patient':'Cura AI'}</span>
+                    <span class="msg-t">${m.t}</span>
+                  </div>
+                  <div class="bubble ${m.dir==='out'?'out':''}">${m.body}</div>
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>
+
+        <div class="sec-label">Qualification answers</div>
+        <div class="qa-box">
+          ${l.qual.map(q => `<div class="qa-item"><div class="qa-q">${q[0]}</div><div class="qa-a">${q[1]}</div></div>`).join('')}
+        </div>
+      </div>
+
+      <div>
+        <div class="score-box">
+          <div class="score-head">
+            <span class="lab">Lead score</span>
+            <span class="big tnum">${l.score}<span>/100</span></span>
+          </div>
+          <div class="sb-track" style="margin-bottom:16px;"><div class="sb-fill" style="width:${scoreFill}%"></div></div>
+          ${l.breakdown.map(b => `<div class="sb-row"><span>${b[0]}</span><span class="pts">+${b[1]}</span></div>`).join('')}
+        </div>
+
+        <div class="sec-label">Touchpoint timeline</div>
+        <div class="tl-box">
+          ${l.timeline.map((t,i) => `
+            <div class="tl-item">
+              <div class="tl-dot ${t[1]==='—'?'muted':''}"></div>
+              <div class="tl-body"><div class="ev">${t[0]}</div><div class="tm">${t[1]}</div></div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('leadDetailBody').innerHTML = body;
+}
+
+// ════════════════════════  NAVIGATION  ════════════════════════
+const TITLES = { dashboard:'Dashboard', revenue:'Revenue', channels:'Channels', followups:'Follow-ups', leaddetail:'Lead detail' };
+let prevScreen = 'dashboard';
+
+function go(screen){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(screen).classList.add('active');
+  document.querySelectorAll('.nav-item[data-screen]').forEach(n => n.classList.toggle('active', n.dataset.screen===screen));
+  document.querySelectorAll('.tab[data-screen]').forEach(n => n.classList.toggle('active', n.dataset.screen===screen));
+  document.getElementById('pageTitle').textContent = TITLES[screen] || '';
+  document.getElementById('mPageTitle').textContent = TITLES[screen] || '';
+  document.querySelector('.scroll').scrollTop = 0;
+  if(screen==='revenue') setTimeout(animateBars, 60);
+  if(screen!=='leaddetail') prevScreen = screen;
+}
+
+function openLead(id){
+  renderLead(BY_ID[id]);
+  go('leaddetail');
+  // animate score fill
+  setTimeout(()=>{ const f=document.querySelector('#leaddetail .sb-fill'); if(f){ const w=f.style.width; f.style.width='0'; requestAnimationFrame(()=>{ f.style.transition='width 0.7s cubic-bezier(0.2,0.8,0.2,1)'; f.style.width=w; }); } }, 40);
+}
+function backFromLead(){ go(prevScreen); }
+
+function animateBars(){
+  document.querySelectorAll('#revenue .bar-fill').forEach(b => {
+    b.style.width = '0';
+    requestAnimationFrame(()=> setTimeout(()=> b.style.width = b.dataset.w + '%', 20));
+  });
+}
+
+// ════════════════════════  LOGIN  ════════════════════════
+function signIn(){
+  document.getElementById('login').classList.add('hide');
+  document.getElementById('app').classList.add('active');
+  renderFeed(); renderTopLeads(); renderChannels(); renderKanban();
+}
+
+// allow Enter to sign in
+document.addEventListener('keydown', e => {
+  if(e.key==='Enter' && !document.getElementById('login').classList.contains('hide')) signIn();
+});
+
+// pre-render so back navigation etc. always has content
+renderFeed(); renderTopLeads(); renderChannels(); renderKanban();
+</script>
 </body>
 </html>
