@@ -513,7 +513,20 @@
   .lv-mock-tx .b { font-size: 11px; color: var(--gray-400); }
   .lv-mock-v { font-size: 12px; font-weight: 700; }
 
-  /* ─────────────────────────  MOBILE NAV  ───────────────────────── */
+  /* ─────────────────────────  LEAD CARDS  ───────────────────────── */
+  .lead-cards { display: none; }
+  .lead-card {
+    display: flex; flex-direction: column;
+    padding: 15px 18px; border-bottom: 1px solid var(--line-2);
+  }
+  .lead-card:last-child { border-bottom: none; }
+  .lead-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .lead-card-info { flex: 1; min-width: 0; }
+  .lead-card-name { font-size: 14px; font-weight: 650; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lead-card-sub { display: flex; align-items: center; gap: 10px; margin-top: 3px; font-size: 13px; color: var(--gray-500); flex-wrap: wrap; }
+  .lead-card-val { font-weight: 700; color: var(--ink); }
+
+
   .mobile-tabbar { display: none; }
   .mobile-top { display: none; }
 
@@ -549,8 +562,8 @@
     .feed-row { grid-template-columns: 36px 1fr; gap: 11px; }
     .feed-right { display: none; }
     .feed-row .mobile-meta { display: flex; }
-    table.lead-table { font-size: 12.5px; }
-    .lead-table th:nth-child(4), .lead-table td:nth-child(4) { display: none; }
+    table.lead-table { display: none; }
+    .lead-cards { display: block; }
     .login-visual-side { display: none; }
     #login { display: block; }
     .login-form-side { min-height: 100vh; }
@@ -813,6 +826,7 @@
             <thead><tr><th>Patient</th><th>Treatment</th><th class="r">Value</th><th>Last contact</th><th class="r">Action</th></tr></thead>
             <tbody id="topLeadsBody"></tbody>
           </table>
+          <div class="lead-cards" id="topLeadsCards"></div>
         </div>
       </section>
 
@@ -1080,6 +1094,21 @@ function renderTopLeads(){
       <td style="color:var(--gray-400)">${l.time}</td>
       <td class="r"><button class="btn btn-primary btn-sm" onclick="openLead('${l.id}')">Chase now</button></td>
     </tr>`).join('');
+  document.getElementById('topLeadsCards').innerHTML = top.map(l => `
+    <div class="lead-card">
+      <div class="lead-card-top">
+        ${av(l.name,38)}
+        <div class="lead-card-info">
+          <div class="lead-card-name">${l.name}</div>
+          <div class="lead-card-sub">
+            <span>${l.treatDetail}</span>
+            <span class="lead-card-val tnum">${gbp(l.value)}</span>
+          </div>
+        </div>
+        <span class="score-pill ${scoreClass(l.score)} tnum" style="flex-shrink:0">${l.score}</span>
+      </div>
+      <button class="btn btn-primary btn-block btn-sm" onclick="openLead('${l.id}')">Chase now →</button>
+    </div>`).join('');
 }
 
 // ════════════════════════  RENDER: CHANNELS  ════════════════════════
